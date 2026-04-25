@@ -1813,46 +1813,6 @@ table.xl th.today-col{background:rgba(184,134,11,.15)!important;}
 .bm-log-item .bm-log-meta{font-size:11px;color:var(--text3);flex:1;}
 .bm-bmi-badge{display:inline-block;padding:3px 10px;border-radius:99px;font-size:11px;font-weight:700;margin-left:8px;}
 
-/* ════════════════════════════════════════════
-   NOTEPAD
-════════════════════════════════════════════ */
-.notepad-toolbar{display:flex;align-items:center;gap:8px;margin-bottom:1rem;}
-.np-tool-btn{padding:7px 16px;border-radius:10px;border:1.5px solid var(--border2);background:var(--surface);color:var(--text2);font-size:13px;font-weight:600;cursor:pointer;font-family:'Outfit',sans-serif;transition:all .15s;white-space:nowrap;}
-.np-tool-btn:hover{border-color:var(--text);color:var(--text);}
-.np-search-in{flex:1;height:38px;padding:0 12px;background:var(--surface2);border:1px solid var(--border);border-radius:10px;font-size:13px;color:var(--text);font-family:'Outfit',sans-serif;outline:none;}
-.np-search-in:focus{border-color:var(--accent2);}
-.notepad-layout{display:grid;grid-template-columns:220px 1fr;gap:10px;min-height:460px;}
-@media(max-width:600px){.notepad-layout{grid-template-columns:1fr;min-height:auto;}}
-.np-list-panel{background:var(--surface);border:1px solid var(--border);border-radius:14px;overflow-y:auto;max-height:500px;}
-.np-note-item{padding:10px 14px;border-bottom:1px solid var(--border);cursor:pointer;transition:background .15s;}
-.np-note-item:hover{background:var(--beige);}
-.np-note-item.active-note{background:var(--beige);border-left:3px solid var(--accent2);}
-.np-note-item-title{font-size:13px;font-weight:600;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-.np-note-item-preview{font-size:11px;color:var(--text3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:2px;}
-.np-note-item-date{font-size:10px;color:var(--text3);margin-top:2px;}
-.np-editor-panel{display:flex;flex-direction:column;gap:8px;}
-.np-title-field{width:100%;height:44px;padding:0 14px;background:var(--surface);border:1px solid var(--border);border-radius:12px;font-size:16px;font-weight:600;color:var(--text);font-family:'Cormorant Garamond',serif;outline:none;}
-.np-title-field:focus{border-color:var(--accent2);}
-.np-body-field{flex:1;min-height:360px;padding:14px;background:var(--surface);border:1px solid var(--border);border-radius:12px;font-size:14px;color:var(--text);font-family:'Outfit',sans-serif;outline:none;resize:vertical;line-height:1.65;}
-.np-body-field:focus{border-color:var(--accent2);}
-.np-editor-actions{display:flex;align-items:center;gap:8px;}
-.np-wordcount{font-size:11px;color:var(--text3);flex:1;}
-
-/* ════════════════════════════════════════════
-   COUNTDOWN
-════════════════════════════════════════════ */
-.cd-item{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:1.25rem;margin-bottom:10px;display:flex;align-items:center;gap:14px;box-shadow:var(--shadow);animation:slideIn .2s ease;}
-.cd-emoji{font-size:32px;flex-shrink:0;}
-.cd-body{flex:1;min-width:0;}
-.cd-name{font-size:15px;font-weight:600;color:var(--text);}
-.cd-date{font-size:11px;color:var(--text3);margin-top:2px;}
-.cd-countdown{display:flex;gap:10px;margin-top:8px;}
-.cd-unit{text-align:center;}
-.cd-unit-val{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:600;color:var(--accent2);line-height:1;}
-.cd-unit-lbl{font-size:9px;color:var(--text3);text-transform:uppercase;letter-spacing:.5px;}
-.cd-del{background:none;border:none;cursor:pointer;color:var(--text3);font-size:16px;padding:4px;transition:color .15s;flex-shrink:0;}
-.cd-del:hover{color:#C0392B;}
-.cd-item.cd-past .cd-unit-val{color:var(--text3);}
 </style>
 </head>
 <body>
@@ -1959,7 +1919,7 @@ table.xl th.today-col{background:rgba(184,134,11,.15)!important;}
         <div class="app-card-icon" style="font-size:26px;width:48px;height:48px;">✨</div>
         <div class="app-card-body">
           <div class="app-card-title" style="font-size:15px;">Essentials</div>
-          <div class="cat-card-sub">Calculator · Habits · Notes · Countdown</div>
+          <div class="cat-card-sub">Calculator · Habits · Affirmations</div>
         </div>
       </div>
     </div>
@@ -2106,14 +2066,6 @@ table.xl th.today-col{background:rgba(184,134,11,.15)!important;}
       <div class="app-card" id="go-affirmations" style="--card-accent:#E07070;">
         <div class="app-card-icon">✨</div>
         <div class="app-card-body"><div class="app-card-title">Affirmations</div></div>
-      </div>
-      <div class="app-card" id="go-notepad" style="--card-accent:#C9A84C;">
-        <div class="app-card-icon">📝</div>
-        <div class="app-card-body"><div class="app-card-title">Notepad</div></div>
-      </div>
-      <div class="app-card" id="go-countdown" style="--card-accent:#E05858;">
-        <div class="app-card-icon">⏳</div>
-        <div class="app-card-body"><div class="app-card-title">Countdowns</div></div>
       </div>
     </div>
   </div>
@@ -3080,69 +3032,6 @@ table.xl th.today-col{background:rgba(184,134,11,.15)!important;}
       </div>
     </div>
 </div>
-
-<!-- ═══════════════════════════════════════════
-     APP 23 — NOTEPAD
-═══════════════════════════════════════════ -->
-<div class="screen" id="screen-notepad">
-  <div class="app-wrap">
-    <div class="app-topbar">
-      <button class="back-btn" id="back-notepad">← Essentials</button>
-      <div class="app-title">📝 Notepad</div>
-      <div class="topbar-right">
-        <button class="theme-btn" id="theme-btn-notepad"><div class="theme-knob" id="theme-knob-notepad">☀️</div></button>
-      </div>
-    </div>
-    <div class="notepad-toolbar">
-      <button class="np-tool-btn" id="np-new">+ New</button>
-      <input type="text" id="np-search" placeholder="Search notes…" class="np-search-in"/>
-    </div>
-    <div class="notepad-layout">
-      <div class="np-list-panel" id="np-list-panel"></div>
-      <div class="np-editor-panel">
-        <input type="text" id="np-title-in" placeholder="Note title…" class="np-title-field" maxlength="80"/>
-        <textarea id="np-body-in" class="np-body-field" placeholder="Start writing…"></textarea>
-        <div class="np-editor-actions">
-          <div class="np-wordcount" id="np-wordcount">0 words</div>
-          <button class="btn-primary" id="np-save-btn">Save</button>
-          <button class="btn-ghost" id="np-delete-btn" style="display:none;">🗑 Delete</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ═══════════════════════════════════════════
-     APP 24 — COUNTDOWN EVENTS
-═══════════════════════════════════════════ -->
-<div class="screen" id="screen-countdown">
-  <div class="app-wrap">
-    <div class="app-topbar">
-      <button class="back-btn" id="back-countdown">← Essentials</button>
-      <div class="app-title">⏳ Countdowns</div>
-      <div class="topbar-right">
-        <button class="theme-btn" id="theme-btn-countdown"><div class="theme-knob" id="theme-knob-countdown">☀️</div></button>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-title">New Event</div>
-      <div class="field-row">
-        <div class="field" style="flex:3"><input type="text" id="cd-name-in" placeholder="Event name" maxlength="60"/></div>
-        <div class="field"><input type="date" id="cd-date-in"/></div>
-        <div class="field">
-          <select id="cd-emoji-in">
-            <option>🎂</option><option>✈️</option><option>🎓</option><option>💍</option>
-            <option>🏖️</option><option>🎉</option><option>💼</option><option>🏆</option>
-            <option>❤️</option><option>🌟</option>
-          </select>
-        </div>
-        <button class="btn-primary" id="cd-add-btn">+ Add</button>
-      </div>
-    </div>
-    <div id="cd-list"></div>
-  </div>
-</div>
-
 <!-- Productivity prompt overlay -->
 <div id="fidget-prompt-overlay" style="display:none;">
   <div class="fidget-prompt-overlay">
@@ -3315,7 +3204,7 @@ document.getElementById('intro-skip').addEventListener('click',function(){
 /* ── THEME ── */
 var curTheme = localStorage.getItem('ps_theme')||'light';
 document.documentElement.setAttribute('data-theme',curTheme);
-var ALL_SCREEN_IDS = ['land','pizza','tt','monthly','journal','affirmations','tictactoe','pomodoro','habits','calc','fidget','hub-focus','hub-recharge','hub-trackers','hub-essentials','eisenhower','goals','breathe','moodtracker','finance','sleep','water','notepad','countdown'];
+var ALL_SCREEN_IDS = ['land','pizza','tt','monthly','journal','affirmations','tictactoe','pomodoro','habits','calc','fidget','hub-focus','hub-recharge','hub-trackers','hub-essentials','eisenhower','goals','breathe','moodtracker','finance','sleep','water'];
 ALL_SCREEN_IDS.forEach(function(id){
   var knob=document.getElementById('theme-knob-'+id);
   if(knob) knob.textContent=curTheme==='dark'?'🌙':'☀️';
@@ -3363,8 +3252,6 @@ document.getElementById('go-monthly').addEventListener('click',function(){showSc
 document.getElementById('go-calc').addEventListener('click',function(){showScreen('screen-calc');});
 document.getElementById('go-habits').addEventListener('click',function(){showScreen('screen-habits');habitRender();});
 document.getElementById('go-affirmations').addEventListener('click',function(){showScreen('screen-affirmations');affRender();});
-document.getElementById('go-notepad').addEventListener('click',function(){showScreen('screen-notepad');npRender();});
-document.getElementById('go-countdown').addEventListener('click',function(){showScreen('screen-countdown');cdRender();});
 
 // App → Hub
 document.getElementById('back-pizza').addEventListener('click',function(){showScreen('screen-hub-focus');});
@@ -3377,8 +3264,6 @@ document.getElementById('back-monthly').addEventListener('click',function(){show
 document.getElementById('back-calc').addEventListener('click',function(){showScreen('screen-hub-essentials');});
 document.getElementById('back-habits').addEventListener('click',function(){showScreen('screen-hub-essentials');});
 document.getElementById('back-affirmations').addEventListener('click',function(){showScreen('screen-hub-essentials');});
-document.getElementById('back-notepad').addEventListener('click',function(){showScreen('screen-hub-essentials');});
-document.getElementById('back-countdown').addEventListener('click',function(){showScreen('screen-hub-essentials');});
 
 /* ── CONFETTI ── */
 
@@ -4487,118 +4372,6 @@ document.querySelectorAll('[data-conv-cat]').forEach(function(btn){
     convRender();
   });
 });
-
-/* ═══════════════════════════════════════════════════════
-   NOTEPAD
-═══════════════════════════════════════════════════════ */
-var npNotes = loadJSON('ps_notepad',[]);
-var npActiveId = null;
-var npSearchQ = '';
-
-function npSave(){saveJSON('ps_notepad',npNotes);}
-function npRender(){
-  var filtered=npSearchQ?npNotes.filter(function(n){return (n.title+n.body).toLowerCase().includes(npSearchQ.toLowerCase());}):npNotes;
-  var panel=document.getElementById('np-list-panel');panel.innerHTML='';
-  if(!filtered.length){panel.innerHTML='<div style="padding:14px;font-size:12px;color:var(--text3);">No notes yet</div>';return;}
-  filtered.slice().sort(function(a,b){return b.updated-a.updated;}).forEach(function(n){
-    var item=document.createElement('div');item.className='np-note-item'+(n.id===npActiveId?' active-note':'');
-    item.innerHTML='<div class="np-note-item-title">'+esc(n.title||'Untitled')+'</div><div class="np-note-item-preview">'+esc((n.body||'').slice(0,60))+'</div><div class="np-note-item-date">'+new Date(n.updated).toLocaleDateString()+'</div>';
-    item.addEventListener('click',function(){npLoadNote(n.id);});
-    panel.appendChild(item);
-  });
-}
-function npLoadNote(id){
-  npActiveId=id;
-  var n=npNotes.find(function(x){return x.id===id;});
-  if(!n)return;
-  document.getElementById('np-title-in').value=n.title||'';
-  document.getElementById('np-body-in').value=n.body||'';
-  document.getElementById('np-delete-btn').style.display='';
-  npUpdateWordcount();
-  npRender();
-}
-function npUpdateWordcount(){
-  var txt=document.getElementById('np-body-in').value;
-  var words=txt.trim()?txt.trim().split(/\s+/).length:0;
-  document.getElementById('np-wordcount').textContent=words+' words';
-}
-document.getElementById('np-new').addEventListener('click',function(){
-  npActiveId=null;
-  document.getElementById('np-title-in').value='';
-  document.getElementById('np-body-in').value='';
-  document.getElementById('np-delete-btn').style.display='none';
-  npUpdateWordcount();
-  npRender();
-  document.getElementById('np-title-in').focus();
-});
-document.getElementById('np-save-btn').addEventListener('click',function(){
-  var title=document.getElementById('np-title-in').value.trim()||'Untitled';
-  var body=document.getElementById('np-body-in').value;
-  if(!body.trim()&&!title)return;
-  if(npActiveId){
-    var n=npNotes.find(function(x){return x.id===npActiveId;});
-    if(n){n.title=title;n.body=body;n.updated=Date.now();}
-  } else {
-    var newNote={id:Date.now(),title:title,body:body,updated:Date.now()};
-    npNotes.push(newNote);npActiveId=newNote.id;
-  }
-  npSave();npRender();
-  document.getElementById('np-delete-btn').style.display='';
-});
-document.getElementById('np-delete-btn').addEventListener('click',function(){
-  if(!npActiveId)return;
-  npNotes=npNotes.filter(function(n){return n.id!==npActiveId;});npActiveId=null;npSave();
-  document.getElementById('np-title-in').value='';document.getElementById('np-body-in').value='';
-  document.getElementById('np-delete-btn').style.display='none';
-  npRender();
-});
-document.getElementById('np-body-in').addEventListener('input',npUpdateWordcount);
-document.getElementById('np-search').addEventListener('input',function(){npSearchQ=this.value;npRender();});
-
-/* ═══════════════════════════════════════════════════════
-   COUNTDOWN EVENTS
-═══════════════════════════════════════════════════════ */
-var cdEvents = loadJSON('ps_countdowns',[]);
-
-function cdSave(){saveJSON('ps_countdowns',cdEvents);}
-function cdRender(){
-  var list=document.getElementById('cd-list');list.innerHTML='';
-  if(!cdEvents.length){list.innerHTML='<div class="empty-state"><span class="empty-icon">⏳</span>No events yet!</div>';return;}
-  cdEvents.slice().sort(function(a,b){return new Date(a.date)-new Date(b.date);}).forEach(function(ev){
-    var now=new Date(),target=new Date(ev.date+'T00:00:00');
-    var diff=target-now;
-    var past=diff<0;
-    var absDiff=Math.abs(diff);
-    var days=Math.floor(absDiff/(1000*60*60*24));
-    var hrs=Math.floor((absDiff%(1000*60*60*24))/(1000*60*60));
-    var mins=Math.floor((absDiff%(1000*60*60))/(1000*60));
-    var secs=Math.floor((absDiff%(1000*60))/1000);
-    var item=document.createElement('div');item.className='cd-item'+(past?' cd-past':'');
-    item.innerHTML='<div class="cd-emoji">'+ev.emoji+'</div>'
-      +'<div class="cd-body"><div class="cd-name">'+esc(ev.name)+'</div><div class="cd-date">'+ev.date+(past?' · Past':'')+'</div>'
-      +'<div class="cd-countdown">'
-      +'<div class="cd-unit"><div class="cd-unit-val">'+days+'</div><div class="cd-unit-lbl">Days</div></div>'
-      +'<div class="cd-unit"><div class="cd-unit-val">'+hrs+'</div><div class="cd-unit-lbl">Hrs</div></div>'
-      +'<div class="cd-unit"><div class="cd-unit-val">'+pad(mins)+'</div><div class="cd-unit-lbl">Min</div></div>'
-      +'<div class="cd-unit"><div class="cd-unit-val">'+pad(secs)+'</div><div class="cd-unit-lbl">Sec</div></div>'
-      +'</div></div>'
-      +'<button class="cd-del">×</button>';
-    item.querySelector('.cd-del').addEventListener('click',function(){cdEvents=cdEvents.filter(function(x){return x.id!==ev.id;});cdSave();cdRender();});
-    list.appendChild(item);
-  });
-}
-document.getElementById('cd-add-btn').addEventListener('click',function(){
-  var name=document.getElementById('cd-name-in').value.trim();
-  var date=document.getElementById('cd-date-in').value;
-  if(!name||!date)return;
-  cdEvents.push({id:Date.now(),name:name,date:date,emoji:document.getElementById('cd-emoji-in').value});
-  document.getElementById('cd-name-in').value='';document.getElementById('cd-date-in').value='';
-  cdSave();cdRender();
-});
-setInterval(function(){
-  if(document.getElementById('screen-countdown').classList.contains('active'))cdRender();
-},1000);
-
 }); // DOMContentLoaded
 
 /* ═══════════════════════════════════════════════
