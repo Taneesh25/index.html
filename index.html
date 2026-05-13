@@ -1511,10 +1511,10 @@ table.xl th.today-col{background:rgba(184,134,11,.15)!important;}
 .hub-back-btn:hover{border-color:var(--text);color:var(--text);}
 
 /* ── HUB SCREENS inherit land-wrap layout ── */
-.screen[id^="screen-hub"],.screen#screen-data{
+.screen[id^="screen-hub"]{
   height:100vh;overflow:hidden;display:none;
 }
-.screen[id^="screen-hub"].active,.screen#screen-data.active{
+.screen[id^="screen-hub"].active{
   display:flex;align-items:center;justify-content:center;
 }
 
@@ -3061,6 +3061,7 @@ table.xl th.today-col{background:rgba(184,134,11,.15)!important;}
         <span style="font-size:11px;color:var(--text3);">ml</span>
       </div>
     </div>
+  </div>
 </div>
 <!-- Productivity prompt overlay -->
 <div id="fidget-prompt-overlay" style="display:none;">
@@ -3081,28 +3082,26 @@ table.xl th.today-col{background:rgba(184,134,11,.15)!important;}
      DATA — EXPORT / IMPORT
 ═══════════════════════════════════════════ -->
 <div class="screen" id="screen-data">
-  <div class="land-wrap">
-    <div class="land-topbar">
-      <button class="hub-back-btn" id="back-data">← Home</button>
-      <div class="land-logo">💾 <span>My Data</span></div>
-      <button class="theme-btn" id="theme-btn-data"><div class="theme-knob" id="theme-knob-data">☀️</div></button>
+  <div class="app-wrap">
+    <div class="app-topbar">
+      <button class="back-btn" id="back-data">← Home</button>
+      <div class="app-title">💾 My Data</div>
+      <div class="topbar-right">
+        <button class="theme-btn" id="theme-btn-data"><div class="theme-knob" id="theme-knob-data">☀️</div></button>
+      </div>
     </div>
-    <div class="land-hero" style="margin-bottom:1.5rem;">
-      <div class="land-hero-greeting">Your data, your control ✦</div>
-      <h1>Back up &amp; <em>restore</em><br/>everything.</h1>
-    </div>
-    <div style="display:flex;flex-direction:column;gap:16px;max-width:420px;margin:0 auto;">
-      <div style="background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:24px;">
+    <div style="display:flex;flex-direction:column;gap:16px;margin-top:8px;">
+      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:16px;padding:24px;">
         <div style="font-size:32px;margin-bottom:12px;">⬇️</div>
         <div style="font-weight:600;font-size:16px;margin-bottom:6px;">Export Data</div>
         <div style="font-size:13px;color:var(--text2);margin-bottom:16px;">Download all your app data (tasks, habits, journal, finance, etc.) as a JSON backup file.</div>
         <button id="data-export-btn" style="width:100%;padding:12px;background:var(--accent);color:var(--bg);border:none;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;font-family:'Outfit',sans-serif;">Download Backup</button>
       </div>
-      <div style="background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:24px;">
+      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:16px;padding:24px;">
         <div style="font-size:32px;margin-bottom:12px;">⬆️</div>
         <div style="font-weight:600;font-size:16px;margin-bottom:6px;">Import Data</div>
         <div style="font-size:13px;color:var(--text2);margin-bottom:16px;">Restore from a previously exported backup file. This will overwrite matching data.</div>
-        <label style="display:block;width:100%;padding:12px;background:var(--surface2);border:1px solid var(--border2);border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;text-align:center;font-family:'Outfit',sans-serif;">
+        <label style="display:block;width:100%;padding:12px;background:var(--surface);border:1px solid var(--border2);border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;text-align:center;font-family:'Outfit',sans-serif;">
           Choose Backup File
           <input type="file" id="data-import-input" accept=".json" style="display:none;"/>
         </label>
