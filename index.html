@@ -652,6 +652,7 @@ body::before{
   color:var(--text2);font-size:12px;font-weight:500;
   cursor:pointer;font-family:'Outfit',sans-serif;transition:all .18s;
 }
+.ds-chip{padding:5px 12px;border-radius:99px;background:var(--surface2);border:1px solid var(--border);font-size:12px;color:var(--text2);font-weight:500;}
 .filter-btn:hover{border-color:var(--text);color:var(--text);}
 .filter-btn.active{background:var(--text);color:var(--bg);border-color:var(--text);}
 .sort-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;}
@@ -1862,9 +1863,10 @@ table.xl th.today-col{background:rgba(184,134,11,.15)!important;}
     <div class="land-topbar">
       <div class="land-logo">🍕 <span>Productivity</span>&nbsp;Suite</div>
       <div class="topbar-actions">
-        <div class="user-chip" id="user-chip" style="display:none" onclick="document.getElementById('intro-overlay').classList.remove('hidden');document.getElementById('intro-overlay').classList.remove('fade-out');">
+        <div class="user-chip" id="user-chip" style="display:none" title="Edit profile" onclick="document.getElementById('intro-overlay').classList.remove('hidden');document.getElementById('intro-overlay').classList.remove('fade-out');">
           <div class="user-chip-avatar" id="user-chip-avatar">?</div>
           <span id="user-chip-name">You</span>
+          <span style="font-size:10px;opacity:0.5;margin-left:2px;">✎</span>
         </div>
         <button class="theme-btn" id="theme-btn-land"><div class="theme-knob" id="theme-knob-land">☀️</div></button>
       </div>
@@ -1890,6 +1892,18 @@ table.xl th.today-col{background:rgba(184,134,11,.15)!important;}
       <div class="qotd-label">✦ Quote of the day</div>
       <div class="qotd-text" id="qotd-text"></div>
       <div class="qotd-author" id="qotd-author"></div>
+    </div>
+
+    <!-- Daily summary -->
+    <div id="daily-summary" style="display:none;margin-bottom:1.2rem;background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:14px 16px;">
+      <div style="font-size:10px;font-weight:700;letter-spacing:.8px;color:var(--text3);text-transform:uppercase;margin-bottom:10px;">Today at a glance</div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;">
+        <div class="ds-chip" id="ds-tasks" style="display:none;"></div>
+        <div class="ds-chip" id="ds-habits" style="display:none;"></div>
+        <div class="ds-chip" id="ds-mood" style="display:none;"></div>
+        <div class="ds-chip" id="ds-water" style="display:none;"></div>
+        <div class="ds-chip" id="ds-sleep" style="display:none;"></div>
+      </div>
     </div>
 
     <!-- Category grid -->
@@ -1920,6 +1934,13 @@ table.xl th.today-col{background:rgba(184,134,11,.15)!important;}
         <div class="app-card-body">
           <div class="app-card-title" style="font-size:15px;">Essentials</div>
           <div class="cat-card-sub">Calculator · Habits · Affirmations</div>
+        </div>
+      </div>
+      <div class="app-card cat-card" id="go-screen-data" style="--card-accent:#4A90D9;">
+        <div class="app-card-icon" style="font-size:26px;width:48px;height:48px;">💾</div>
+        <div class="app-card-body">
+          <div class="app-card-title" style="font-size:15px;">My Data</div>
+          <div class="cat-card-sub">Export · Import · Backup</div>
         </div>
       </div>
     </div>
@@ -2325,6 +2346,7 @@ table.xl th.today-col{background:rgba(184,134,11,.15)!important;}
         <div class="section-title">Past entries</div>
         <div style="font-size:11px;color:var(--text3);font-weight:500;" id="j-entry-count">0 entries</div>
       </div>
+      <input id="j-search" type="text" placeholder="🔍 Search entries…" style="width:100%;padding:8px 12px;margin-bottom:10px;background:var(--surface2);border:1px solid var(--border);border-radius:10px;font-size:13px;color:var(--text);font-family:'Outfit',sans-serif;outline:none;"/>
       <div id="j-entries-list"></div>
     </div>
   </div>
@@ -2390,6 +2412,13 @@ table.xl th.today-col{background:rgba(184,134,11,.15)!important;}
         <div style="font-size:11px;color:var(--text3);font-weight:500;" id="aff-fav-count">0 saved</div>
       </div>
       <div id="aff-favs-list"></div>
+    </div>
+
+    <div style="margin-top:16px;background:var(--surface2);border:1px solid var(--border);border-radius:14px;padding:16px;">
+      <div class="section-title" style="margin-bottom:10px;">✏️ Add your own quote</div>
+      <textarea id="aff-custom-text" placeholder="Your quote…" rows="2" style="width:100%;padding:8px 12px;background:var(--surface);border:1px solid var(--border);border-radius:8px;font-size:13px;color:var(--text);font-family:'Outfit',sans-serif;resize:none;margin-bottom:8px;outline:none;"></textarea>
+      <input id="aff-custom-author" type="text" placeholder="Author (optional)" style="width:100%;padding:8px 12px;background:var(--surface);border:1px solid var(--border);border-radius:8px;font-size:13px;color:var(--text);font-family:'Outfit',sans-serif;margin-bottom:8px;outline:none;"/>
+      <button id="aff-custom-add-btn" style="padding:8px 20px;background:var(--accent);color:var(--bg);border:none;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;font-family:'Outfit',sans-serif;">Add Quote</button>
     </div>
   </div>
 </div>
@@ -2943,6 +2972,7 @@ table.xl th.today-col{background:rgba(184,134,11,.15)!important;}
       <button class="filter-btn" data-finf="income">💚 Income</button>
       <button class="filter-btn" data-finf="expense">🔴 Expense</button>
     </div>
+    <input id="fin-search" type="text" placeholder="🔍 Search transactions…" style="width:100%;padding:8px 12px;margin-bottom:10px;background:var(--surface2);border:1px solid var(--border);border-radius:10px;font-size:13px;color:var(--text);font-family:'Outfit',sans-serif;outline:none;"/>
     <div id="fin-list"></div>
   </div>
 </div>
@@ -3047,6 +3077,41 @@ table.xl th.today-col{background:rgba(184,134,11,.15)!important;}
   </div>
 </div>
 
+<!-- ═══════════════════════════════════════════
+     DATA — EXPORT / IMPORT
+═══════════════════════════════════════════ -->
+<div class="screen" id="screen-data">
+  <div class="land-wrap">
+    <div class="land-topbar">
+      <button class="hub-back-btn" id="back-data">← Home</button>
+      <div class="land-logo">💾 <span>My Data</span></div>
+      <button class="theme-btn" id="theme-btn-data"><div class="theme-knob" id="theme-knob-data">☀️</div></button>
+    </div>
+    <div class="land-hero" style="margin-bottom:1.5rem;">
+      <div class="land-hero-greeting">Your data, your control ✦</div>
+      <h1>Back up &amp; <em>restore</em><br/>everything.</h1>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:16px;max-width:420px;margin:0 auto;">
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:24px;">
+        <div style="font-size:32px;margin-bottom:12px;">⬇️</div>
+        <div style="font-weight:600;font-size:16px;margin-bottom:6px;">Export Data</div>
+        <div style="font-size:13px;color:var(--text2);margin-bottom:16px;">Download all your app data (tasks, habits, journal, finance, etc.) as a JSON backup file.</div>
+        <button id="data-export-btn" style="width:100%;padding:12px;background:var(--accent);color:var(--bg);border:none;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;font-family:'Outfit',sans-serif;">Download Backup</button>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:24px;">
+        <div style="font-size:32px;margin-bottom:12px;">⬆️</div>
+        <div style="font-weight:600;font-size:16px;margin-bottom:6px;">Import Data</div>
+        <div style="font-size:13px;color:var(--text2);margin-bottom:16px;">Restore from a previously exported backup file. This will overwrite matching data.</div>
+        <label style="display:block;width:100%;padding:12px;background:var(--surface2);border:1px solid var(--border2);border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;text-align:center;font-family:'Outfit',sans-serif;">
+          Choose Backup File
+          <input type="file" id="data-import-input" accept=".json" style="display:none;"/>
+        </label>
+      </div>
+      <div id="data-status" style="text-align:center;font-size:13px;color:var(--accent3);min-height:20px;padding:4px 0;"></div>
+    </div>
+  </div>
+</div>
+
 <script>
 /* ═══════════════════════════════════════
    GLOBALS & HELPERS  (top-level scope)
@@ -3076,7 +3141,7 @@ function fmtDate(d){return d.toLocaleDateString('en-IN',{weekday:'short',day:'nu
 function fmtDateLong(d){return d.toLocaleDateString('en-IN',{weekday:'long',day:'numeric',month:'long',year:'numeric'});}
 function fmtTime(t){if(!t)return '';var p=t.split(':'),h=parseInt(p[0]),m=parseInt(p[1]);return (h%12||12)+':'+pad(m)+(h>=12?' PM':' AM');}
 function loadJSON(key,def){try{return JSON.parse(localStorage.getItem(key))||def;}catch(e){return def;}}
-function saveJSON(key,val){localStorage.setItem(key,JSON.stringify(val));}
+function saveJSON(key,val){try{localStorage.setItem(key,JSON.stringify(val));}catch(e){console.warn('Storage save failed:',e);}}
 
 function launchConfetti(){
   var wrap=document.getElementById('confetti-wrap');
@@ -3204,7 +3269,7 @@ document.getElementById('intro-skip').addEventListener('click',function(){
 /* ── THEME ── */
 var curTheme = localStorage.getItem('ps_theme')||'light';
 document.documentElement.setAttribute('data-theme',curTheme);
-var ALL_SCREEN_IDS = ['land','pizza','tt','monthly','journal','affirmations','tictactoe','pomodoro','habits','calc','fidget','hub-focus','hub-recharge','hub-trackers','hub-essentials','eisenhower','goals','breathe','moodtracker','finance','sleep','water'];
+var ALL_SCREEN_IDS = ['land','pizza','tt','monthly','journal','affirmations','tictactoe','pomodoro','habits','calc','fidget','hub-focus','hub-recharge','hub-trackers','hub-essentials','eisenhower','goals','breathe','moodtracker','finance','sleep','water','data'];
 ALL_SCREEN_IDS.forEach(function(id){
   var knob=document.getElementById('theme-knob-'+id);
   if(knob) knob.textContent=curTheme==='dark'?'🌙':'☀️';
@@ -3582,6 +3647,7 @@ document.querySelectorAll('.mood-btn').forEach(function(btn){
 });
 
 document.getElementById('j-save').addEventListener('click',jSaveEntry);
+document.getElementById('j-search').addEventListener('input',jRender);
 document.getElementById('j-modal-close').addEventListener('click',function(){document.getElementById('j-modal').classList.remove('open');});
 document.getElementById('j-modal').addEventListener('click',function(e){if(e.target===this)this.classList.remove('open');});
 document.getElementById('j-refresh-prompt').addEventListener('click',function(){
@@ -3623,10 +3689,16 @@ function jRender(){
   // Render past entries
   var list = document.getElementById('j-entries-list');
   list.innerHTML = '';
-  var keys = Object.keys(jData).sort(function(a,b){return b.localeCompare(a);});
-  document.getElementById('j-entry-count').textContent = keys.length+' entr'+(keys.length!==1?'ies':'y');
-  if(!keys.length){
+  var searchVal = (document.getElementById('j-search').value||'').toLowerCase().trim();
+  var allKeys = Object.keys(jData).sort(function(a,b){return b.localeCompare(a);});
+  var keys = searchVal ? allKeys.filter(function(k){var e=jData[k];return (e.text||'').toLowerCase().includes(searchVal)||(e.mood||'').toLowerCase().includes(searchVal);}) : allKeys;
+  document.getElementById('j-entry-count').textContent = (searchVal ? keys.length+' of '+allKeys.length : keys.length)+' entr'+(allKeys.length!==1?'ies':'y');
+  if(!allKeys.length){
     list.innerHTML = '<div class="empty-state"><span class="empty-icon">📓</span>No entries yet — write your first one above.</div>';
+    return;
+  }
+  if(!keys.length){
+    list.innerHTML = '<div class="empty-state"><span class="empty-icon">🔍</span>No entries match your search.</div>';
     return;
   }
   keys.forEach(function(k){
@@ -3711,12 +3783,16 @@ var AFF_QUOTES = [
 ];
 
 var affFavs = loadJSON('ps_aff_favs',[]);
+var affCustom = loadJSON('ps_aff_custom',[]);
 var affCat = 'all';
 var affFiltered = AFF_QUOTES.slice();
 var affIndex = 0;
 
+function affAllQuotes(){return AFF_QUOTES.concat(affCustom);}
+
 function affGetFiltered(){
-  return affCat==='all'?AFF_QUOTES:AFF_QUOTES.filter(function(q){return q.cat===affCat;});
+  var all = affAllQuotes();
+  return affCat==='all'?all:all.filter(function(q){return q.cat===affCat||q.cat==='custom';});
 }
 
 function affRender(){
@@ -3800,6 +3876,18 @@ document.querySelectorAll('[data-affcat]').forEach(function(btn){
     btn.classList.add('active');
     affIndex=0;affRender();
   });
+});
+
+document.getElementById('aff-custom-add-btn').addEventListener('click',function(){
+  var text=document.getElementById('aff-custom-text').value.trim();
+  if(!text)return;
+  var author=document.getElementById('aff-custom-author').value.trim()||'You';
+  affCustom.push({q:text,a:author,cat:'custom'});
+  saveJSON('ps_aff_custom',affCustom);
+  document.getElementById('aff-custom-text').value='';
+  document.getElementById('aff-custom-author').value='';
+  affIndex=affGetFiltered().length-1;
+  affRender();
 });
 
 /* ═══════════════════════════════════════
@@ -4034,8 +4122,20 @@ function pomTick(){
   pomUpdateRing();
 }
 
+function pomBeep(){
+  try{
+    var ctx=new(window.AudioContext||window.webkitAudioContext)();
+    var osc=ctx.createOscillator();var g=ctx.createGain();
+    osc.connect(g);g.connect(ctx.destination);
+    osc.frequency.value=880;g.gain.setValueAtTime(0.3,ctx.currentTime);
+    g.gain.exponentialRampToValueAtTime(0.001,ctx.currentTime+0.6);
+    osc.start(ctx.currentTime);osc.stop(ctx.currentTime+0.6);
+  }catch(e){}
+}
+
 function pomFinishPhase(){
   clearInterval(pomTimer);pomTimer=null;pomRunning=false;
+  pomBeep();
   if(pomMode==='focus'){
     pomStats.today++;pomStats.total++;pomStats.focusMins+=Math.round(POM_DURATIONS.focus/60);
     saveJSON('ps_pom_stats',pomStats);
@@ -4372,6 +4472,54 @@ document.querySelectorAll('[data-conv-cat]').forEach(function(btn){
     convRender();
   });
 });
+/* ── DAILY SUMMARY ── */
+function renderDailySummary(){
+  var today = dateKey(new Date());
+  var summary = document.getElementById('daily-summary');
+  var hasAny = false;
+
+  // Tasks done today
+  var tasks = loadJSON('ps_pizza_tasks',[]);
+  var todayTasks = tasks.filter(function(t){return t.date===today;});
+  var doneTasks = todayTasks.filter(function(t){return t.done;});
+  var tEl = document.getElementById('ds-tasks');
+  if(todayTasks.length){tEl.textContent='✅ '+doneTasks.length+'/'+todayTasks.length+' tasks';tEl.style.display='';hasAny=true;}else{tEl.style.display='none';}
+
+  // Habits done today
+  var habitData = loadJSON('ps_habits',{habits:[],ticks:{}});
+  var totalH = habitData.habits.length;
+  var doneH = habitData.habits.filter(function(h){return (habitData.ticks[today+'_'+h.id]||0)>=(h.goal||1);}).length;
+  var hEl = document.getElementById('ds-habits');
+  if(totalH){hEl.textContent='🏅 '+doneH+'/'+totalH+' habits';hEl.style.display='';hasAny=true;}else{hEl.style.display='none';}
+
+  // Mood today
+  var moods = loadJSON('ps_mood',[]);
+  var todayMood = moods.filter(function(m){return m.date===today;}).slice(-1)[0];
+  var mEl = document.getElementById('ds-mood');
+  if(todayMood){mEl.textContent=todayMood.emoji+' '+todayMood.label;mEl.style.display='';hasAny=true;}else{mEl.style.display='none';}
+
+  // Water today
+  var water = loadJSON('ps_water',{date:'',ml:0,goal:2000});
+  var wEl = document.getElementById('ds-water');
+  if(water.date===today&&water.ml>0){var wpct=Math.round(water.ml/water.goal*100);wEl.textContent='💧 '+water.ml+'ml ('+wpct+'%)';wEl.style.display='';hasAny=true;}else{wEl.style.display='none';}
+
+  // Sleep last night
+  var sleepData = loadJSON('ps_sleep',[]);
+  var lastSleep = sleepData.slice(-1)[0];
+  var sEl = document.getElementById('ds-sleep');
+  if(lastSleep){sEl.textContent='🌙 '+lastSleep.hrs+'h sleep';sEl.style.display='';hasAny=true;}else{sEl.style.display='none';}
+
+  summary.style.display = hasAny ? '' : 'none';
+}
+
+renderDailySummary();
+
+// Refresh summary when returning to landing from any hub
+['back-hub-focus','back-hub-recharge','back-hub-trackers','back-hub-essentials'].forEach(function(id){
+  var btn=document.getElementById(id);
+  if(btn) btn.addEventListener('click',function(){setTimeout(renderDailySummary,0);});
+});
+
 }); // DOMContentLoaded
 
 /* ═══════════════════════════════════════════════
@@ -4722,7 +4870,7 @@ function eiRender(){
       txt.style.flex='1';txt.textContent=t.text;
       var del=document.createElement('button');
       del.className='ei-task-del';del.textContent='×';
-      del.addEventListener('click',function(){eiData[q]=eiData[q].filter(function(x){return x.id!==t.id;});eiSave();eiRender();});
+      del.addEventListener('click',function(){if(!confirm('Delete this task?'))return;eiData[q]=eiData[q].filter(function(x){return x.id!==t.id;});eiSave();eiRender();});
       item.appendChild(chk);item.appendChild(txt);item.appendChild(del);
       list.appendChild(item);
     });
@@ -4764,7 +4912,7 @@ function glRender(){
     card.innerHTML='<div class="gl-card-top"><span class="gl-emoji">'+(GL_CAT[g.cat]||'✨')+'</span><span class="gl-title">'+esc(g.title)+'</span><span class="gl-date">'+esc(daysLeft)+'</span><button class="gl-del-btn" title="Delete">×</button></div>'
       +'<div class="gl-progress-row"><div class="progress-track" style="flex:1"><div class="progress-fill" style="width:'+pct+'%;background:var(--accent3)"></div></div><span style="font-size:11px;color:var(--text3);min-width:36px;text-align:right;">'+pct+'%</span></div>'
       +'<div class="gl-ms-btns">'+(g.milestones||[]).slice(0,5).map(function(m){return '<span class="gl-ms-chip'+(m.done?' done-ms':'')+'">'+esc(m.text)+'</span>';}).join('')+'<button class="gl-open-btn">+ Milestones ('+(g.milestones||[]).length+')</button></div>';
-    card.querySelector('.gl-del-btn').addEventListener('click',function(){glGoals=glGoals.filter(function(x){return x.id!==g.id;});glSave();glRender();});
+    card.querySelector('.gl-del-btn').addEventListener('click',function(){if(!confirm('Delete this goal?'))return;glGoals=glGoals.filter(function(x){return x.id!==g.id;});glSave();glRender();});
     card.querySelector('.gl-open-btn').addEventListener('click',function(){glActiveId=g.id;glOpenModal(g);});
     list.appendChild(card);
   });
@@ -4929,6 +5077,7 @@ document.getElementById('fin-add-btn').addEventListener('click',function(){
 document.querySelectorAll('[data-finf]').forEach(function(btn){
   btn.addEventListener('click',function(){finFilter=btn.getAttribute('data-finf');document.querySelectorAll('[data-finf]').forEach(function(b){b.classList.remove('active');});btn.classList.add('active');finRender();});
 });
+document.getElementById('fin-search').addEventListener('input',finRender);
 function finRender(){
   var income=finTx.filter(function(t){return t.type==='income';}).reduce(function(a,t){return a+t.amount;},0);
   var expense=finTx.filter(function(t){return t.type==='expense';}).reduce(function(a,t){return a+t.amount;},0);
@@ -4941,13 +5090,15 @@ function finRender(){
   document.getElementById('fin-budget-pct').textContent=pct+'%';
   document.getElementById('fin-budget-fill').style.width=pct+'%';
   document.getElementById('fin-budget-fill').style.background=pct>80?'#C0392B':pct>60?'#C9A84C':'var(--accent3)';
+  var finSearch=(document.getElementById('fin-search').value||'').toLowerCase().trim();
   var filtered=finFilter==='all'?finTx:finTx.filter(function(t){return t.type===finFilter;});
+  if(finSearch) filtered=filtered.filter(function(t){return (t.desc||'').toLowerCase().includes(finSearch)||(t.cat||'').toLowerCase().includes(finSearch);});
   var list=document.getElementById('fin-list');list.innerHTML='';
   if(!filtered.length){list.innerHTML='<div class="empty-state"><span class="empty-icon">💰</span>No transactions yet</div>';return;}
   filtered.slice().reverse().forEach(function(t){
     var item=document.createElement('div');item.className='fin-item';
     item.innerHTML='<span class="fin-item-type">'+(FIN_CAT_EMOJI[t.cat]||'✨')+'</span><div class="fin-item-body"><div class="fin-item-desc">'+esc(t.desc)+'</div><div class="fin-item-meta">'+esc(t.cat)+' · '+esc(t.date)+'</div></div><span class="fin-item-amt '+t.type+'">'+(t.type==='income'?'+':'−')+'₹'+t.amount.toFixed(0)+'</span><button class="fin-item-del">×</button>';
-    item.querySelector('.fin-item-del').addEventListener('click',function(){finTx=finTx.filter(function(x){return x.id!==t.id;});saveJSON('ps_finance',finTx);finRender();});
+    item.querySelector('.fin-item-del').addEventListener('click',function(){if(!confirm('Delete this transaction?'))return;finTx=finTx.filter(function(x){return x.id!==t.id;});saveJSON('ps_finance',finTx);finRender();});
     list.appendChild(item);
   });
 }
@@ -5032,6 +5183,46 @@ document.getElementById('water-custom-btn').addEventListener('click',function(){
 document.getElementById('water-reset-btn').addEventListener('click',function(){waterData.ml=0;saveJSON('ps_water',waterData);waterRender();});
 document.getElementById('water-goal-in').addEventListener('change',function(){
   waterData.goal=parseInt(this.value)||2000;saveJSON('ps_water',waterData);waterRender();
+});
+
+/* ═══════════════════════════════════════════════════════
+   DATA — EXPORT / IMPORT
+═══════════════════════════════════════════════════════ */
+document.getElementById('go-screen-data').addEventListener('click',function(){showScreen('screen-data');});
+document.getElementById('back-data').addEventListener('click',function(){showScreen('screen-landing');});
+
+document.getElementById('data-export-btn').addEventListener('click',function(){
+  var snapshot={};
+  for(var i=0;i<localStorage.length;i++){
+    var k=localStorage.key(i);
+    if(k&&k.startsWith('ps_'))snapshot[k]=localStorage.getItem(k);
+  }
+  var blob=new Blob([JSON.stringify(snapshot,null,2)],{type:'application/json'});
+  var url=URL.createObjectURL(blob);
+  var a=document.createElement('a');
+  a.href=url;a.download='productivity-suite-backup-'+dateKey(new Date())+'.json';
+  document.body.appendChild(a);a.click();
+  setTimeout(function(){document.body.removeChild(a);URL.revokeObjectURL(url);},200);
+  document.getElementById('data-status').textContent='Exported '+Object.keys(snapshot).length+' data keys.';
+});
+
+document.getElementById('data-import-input').addEventListener('change',function(e){
+  var file=e.target.files[0];if(!file)return;
+  var reader=new FileReader();
+  reader.onload=function(ev){
+    try{
+      var data=JSON.parse(ev.target.result);
+      var count=0;
+      Object.keys(data).forEach(function(k){
+        if(k.startsWith('ps_')){localStorage.setItem(k,data[k]);count++;}
+      });
+      document.getElementById('data-status').textContent='Imported '+count+' data keys. Refresh the page to see your restored data.';
+    }catch(err){
+      document.getElementById('data-status').textContent='Import failed: invalid file.';
+    }
+    e.target.value='';
+  };
+  reader.readAsText(file);
 });
 
 }); // end new-apps DOMContentLoaded
