@@ -1814,6 +1814,150 @@ table.xl th.today-col{background:rgba(184,134,11,.15)!important;}
 .bm-log-item .bm-log-meta{font-size:11px;color:var(--text3);flex:1;}
 .bm-bmi-badge{display:inline-block;padding:3px 10px;border-radius:99px;font-size:11px;font-weight:700;margin-left:8px;}
 
+/* ── KANBAN ── */
+.kanban-board{display:flex;gap:12px;overflow-x:auto;padding-bottom:8px;}
+.kanban-col{flex:0 0 240px;background:var(--surface2);border:1px solid var(--border);border-radius:14px;padding:12px;}
+.kanban-col-title{font-weight:700;font-size:12px;letter-spacing:.5px;text-transform:uppercase;margin-bottom:10px;color:var(--text2);}
+.kanban-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:8px 10px;margin-bottom:7px;font-size:13px;display:flex;align-items:flex-start;gap:6px;}
+.kanban-card-text{flex:1;color:var(--text);line-height:1.4;}
+.kanban-card-del{background:none;border:none;cursor:pointer;color:var(--text3);font-size:13px;padding:0;flex-shrink:0;transition:color .15s;}
+.kanban-card-del:hover{color:#C0392B;}
+.kanban-move-btn{background:var(--surface2);border:1px solid var(--border);border-radius:6px;font-size:11px;padding:2px 6px;cursor:pointer;color:var(--text2);font-family:'Outfit',sans-serif;margin-right:3px;}
+.kanban-add-row{display:flex;gap:5px;margin-top:8px;}
+.kanban-add-row input{flex:1;height:30px;padding:0 8px;background:var(--surface);border:1px solid var(--border);border-radius:8px;font-size:12px;color:var(--text);font-family:'Outfit',sans-serif;outline:none;}
+/* ── WORDLE ── */
+.wordle-grid{display:grid;grid-template-columns:repeat(5,52px);gap:6px;justify-content:center;margin:12px 0;}
+.wordle-cell{width:52px;height:52px;border:2px solid var(--border2);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:700;color:var(--text);text-transform:uppercase;transition:background .3s,border-color .3s;}
+.wordle-cell.correct{background:#538D4E;border-color:#538D4E;color:#fff;}
+.wordle-cell.present{background:#B59F3B;border-color:#B59F3B;color:#fff;}
+.wordle-cell.absent{background:var(--surface3);border-color:var(--surface3);color:var(--text2);}
+.wordle-keyboard{display:flex;flex-direction:column;gap:5px;align-items:center;margin-top:10px;}
+.wordle-kb-row{display:flex;gap:4px;}
+.wordle-key{min-width:32px;height:40px;border-radius:6px;border:1px solid var(--border);background:var(--surface2);color:var(--text);font-size:12px;font-weight:600;cursor:pointer;font-family:'Outfit',sans-serif;padding:0 5px;transition:background .15s;}
+.wordle-key.correct{background:#538D4E;color:#fff;border-color:#538D4E;}
+.wordle-key.present{background:#B59F3B;color:#fff;border-color:#B59F3B;}
+.wordle-key.absent{background:var(--surface3);color:var(--text3);border-color:var(--surface3);}
+.wordle-key.wide{min-width:50px;font-size:10px;}
+/* ── MEMORY FLIP ── */
+.mem-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;max-width:340px;margin:0 auto;}
+.mem-card{height:76px;perspective:600px;cursor:pointer;}
+.mem-inner{width:100%;height:100%;position:relative;transform-style:preserve-3d;transition:transform .35s;}
+.mem-card.flipped .mem-inner,.mem-card.matched .mem-inner{transform:rotateY(180deg);}
+.mem-face{position:absolute;inset:0;border-radius:10px;display:flex;align-items:center;justify-content:center;backface-visibility:hidden;}
+.mem-front{background:var(--accent2);border:2px solid var(--border);font-size:10px;color:var(--bg);font-weight:700;}
+.mem-back{background:var(--surface2);border:2px solid var(--border);transform:rotateY(180deg);font-size:28px;}
+.mem-card.matched .mem-back{background:var(--accent3);opacity:0.7;}
+/* ── TYPING TEST ── */
+.typing-para{background:var(--surface2);border:1px solid var(--border);border-radius:12px;padding:14px;line-height:1.8;font-size:16px;margin-bottom:10px;min-height:80px;letter-spacing:.3px;}
+.typing-para .t-correct{color:var(--accent3);}
+.typing-para .t-wrong{color:#C0392B;background:rgba(192,57,43,.12);border-radius:2px;}
+.typing-para .t-pending{color:var(--text3);}
+.typing-para .t-cursor{border-left:2px solid var(--accent2);animation:blink .7s infinite;}
+@keyframes blink{50%{border-left-color:transparent;}}
+/* ── XP LEVEL BAR ── */
+.xp-bar-wrap{background:var(--surface2);border:1px solid var(--border);border-radius:12px;padding:12px 14px;margin-bottom:10px;}
+.xp-bar-row{display:flex;justify-content:space-between;font-size:12px;color:var(--text2);margin-bottom:5px;}
+.xp-bar-track{height:8px;background:var(--surface3);border-radius:99px;overflow:hidden;}
+.xp-bar-fill{height:100%;background:linear-gradient(90deg,var(--accent2),var(--accent3));border-radius:99px;transition:width .5s;}
+/* ── BADGES ── */
+.badges-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;}
+.badge-card{background:var(--surface2);border:1px solid var(--border);border-radius:12px;padding:12px 8px;text-align:center;}
+.badge-card.earned{border-color:var(--accent2);}
+.badge-icon{font-size:26px;margin-bottom:4px;}
+.badge-name{font-size:11px;font-weight:700;color:var(--text);margin-bottom:1px;}
+.badge-desc{font-size:10px;color:var(--text3);}
+.badge-card.locked .badge-icon{filter:grayscale(1);opacity:.35;}
+.badge-card.locked .badge-name{color:var(--text3);}
+/* ── WORLD CLOCK ── */
+.tz-card{background:var(--surface2);border:1px solid var(--border);border-radius:12px;padding:11px 14px;display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;}
+.tz-info{flex:1;}
+.tz-name{font-size:13px;font-weight:600;color:var(--text);}
+.tz-sub{font-size:11px;color:var(--text3);}
+.tz-time{font-size:20px;font-weight:700;font-family:'Cormorant Garamond',serif;color:var(--accent2);margin:0 10px;}
+.tz-del{background:none;border:none;cursor:pointer;color:var(--text3);font-size:14px;}
+/* ── COLOR PALETTE ── */
+.palette-swatch{width:44px;height:44px;border-radius:10px;cursor:pointer;border:2px solid var(--border);transition:transform .15s;flex-shrink:0;}
+.palette-swatch:hover{transform:scale(1.12);}
+.palette-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px;}
+.color-info-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;}
+.color-badge{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:4px 10px;font-size:12px;font-weight:600;font-family:monospace;color:var(--text);cursor:pointer;}
+/* ── SAVINGS ── */
+.savings-card{background:var(--surface2);border:1px solid var(--border);border-radius:14px;padding:14px;margin-bottom:10px;}
+.savings-card-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;}
+.savings-card-name{font-weight:700;font-size:14px;color:var(--text);}
+.savings-card-amt{font-size:12px;color:var(--text2);}
+.savings-del{background:none;border:none;cursor:pointer;color:var(--text3);font-size:14px;}
+.savings-add-row{display:flex;gap:6px;margin-top:8px;}
+.savings-add-row input{flex:1;height:30px;padding:0 8px;background:var(--surface);border:1px solid var(--border);border-radius:8px;font-size:12px;color:var(--text);font-family:'Outfit',sans-serif;outline:none;}
+/* ── SUBSCRIPTIONS ── */
+.sub-item{background:var(--surface2);border:1px solid var(--border);border-radius:12px;padding:11px 14px;display:flex;align-items:center;gap:10px;margin-bottom:8px;}
+.sub-icon{font-size:22px;width:38px;height:38px;background:var(--surface);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.sub-body{flex:1;}
+.sub-name{font-weight:600;font-size:13px;color:var(--text);}
+.sub-meta{font-size:11px;color:var(--text3);}
+.sub-amount{font-weight:700;font-size:14px;color:var(--accent2);white-space:nowrap;}
+.sub-del{background:none;border:none;cursor:pointer;color:var(--text3);font-size:14px;}
+/* ── WORKOUT LOG ── */
+.workout-item{background:var(--surface2);border:1px solid var(--border);border-radius:12px;padding:11px 14px;display:flex;align-items:center;gap:10px;margin-bottom:8px;}
+.workout-emoji{font-size:22px;width:34px;text-align:center;flex-shrink:0;}
+.workout-body{flex:1;}
+.workout-title{font-weight:600;font-size:13px;color:var(--text);}
+.workout-meta{font-size:11px;color:var(--text3);}
+.workout-del{background:none;border:none;cursor:pointer;color:var(--text3);font-size:13px;}
+/* ── CAFFEINE ── */
+.caff-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px;}
+.caff-btn{background:var(--surface2);border:1px solid var(--border);border-radius:12px;padding:10px;text-align:center;cursor:pointer;font-family:'Outfit',sans-serif;transition:all .15s;}
+.caff-btn:hover{border-color:var(--text);}
+.caff-btn-icon{font-size:24px;display:block;margin-bottom:3px;}
+.caff-btn-name{font-size:12px;font-weight:600;color:var(--text);display:block;}
+.caff-btn-mg{font-size:11px;color:var(--text3);}
+.caff-log-item{display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid var(--border);font-size:12px;}
+/* ── MEDICATION ── */
+.med-item{background:var(--surface2);border:1px solid var(--border);border-radius:12px;padding:11px 14px;display:flex;align-items:center;gap:10px;margin-bottom:8px;}
+.med-chk{width:24px;height:24px;border-radius:6px;border:2px solid var(--border2);cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .15s;font-size:14px;}
+.med-chk.done{background:var(--accent3);border-color:var(--accent3);}
+.med-body{flex:1;}
+.med-name{font-weight:600;font-size:13px;color:var(--text);}
+.med-time{font-size:11px;color:var(--text3);}
+.med-del{background:none;border:none;cursor:pointer;color:var(--text3);font-size:13px;}
+/* ── MENSTRUAL ── */
+.cycle-cal{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;margin:10px 0;}
+.cycle-day{height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:500;background:var(--surface2);border:1px solid transparent;cursor:pointer;transition:all .15s;color:var(--text2);}
+.cycle-day:hover{border-color:var(--border2);}
+.cycle-day.period{background:#FF69B4;color:#fff;border-color:#FF69B4;}
+.cycle-day.predicted{background:rgba(255,105,180,.15);border-color:rgba(255,105,180,.35);color:#FF69B4;}
+.cycle-day.today{font-weight:800;color:var(--text);border-color:var(--accent2);}
+.cycle-day.blank{background:transparent;border-color:transparent;cursor:default;}
+/* ── DISTRACTION LOG ── */
+.distract-btns{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0;}
+.distract-btn{background:var(--surface2);border:1px solid var(--border);border-radius:20px;padding:5px 11px;font-size:12px;cursor:pointer;font-family:'Outfit',sans-serif;color:var(--text2);transition:all .15s;}
+.distract-btn:hover{border-color:var(--text);color:var(--text);}
+.distract-log-list{max-height:80px;overflow-y:auto;font-size:11px;color:var(--text3);}
+/* ── WORD OF DAY ── */
+.word-of-day-big{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:600;color:var(--accent2);margin-bottom:3px;}
+.word-pos{font-size:12px;color:var(--text3);font-style:italic;margin-bottom:8px;}
+.word-def{font-size:14px;color:var(--text2);line-height:1.6;margin-bottom:10px;}
+.word-example{font-size:13px;color:var(--text3);border-left:3px solid var(--border2);padding-left:10px;font-style:italic;margin-bottom:12px;}
+.glossary-item{display:flex;justify-content:space-between;align-items:flex-start;padding:8px 0;border-bottom:1px solid var(--border);}
+.glossary-word{font-weight:700;font-size:13px;color:var(--text);min-width:80px;}
+.glossary-def{font-size:12px;color:var(--text3);flex:1;margin-left:8px;}
+.glossary-del{background:none;border:none;cursor:pointer;color:var(--text3);font-size:13px;}
+/* ── BODY METRICS ── */
+.metric-chart{display:flex;align-items:flex-end;gap:4px;height:80px;margin:10px 0;}
+.metric-bar{flex:1;background:var(--accent2);border-radius:4px 4px 0 0;opacity:.8;transition:height .3s;}
+.metric-entry{display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid var(--border);font-size:13px;}
+.metric-del{background:none;border:none;cursor:pointer;color:var(--text3);font-size:13px;}
+/* ── PRINT FRIENDLY ── */
+@media print{
+  body::before,body::after{display:none!important;}
+  .app-topbar,.back-btn,.theme-btn,.btn-primary,.btn-ghost,.pom-btns,.filter-bar,.distract-btns,.aff-auto-row,.aff-nav{display:none!important;}
+  .screen:not(.active){display:none!important;}
+  .screen.active{display:block!important;}
+  .card,.app-wrap{box-shadow:none!important;border:1px solid #ccc!important;}
+}
+/* ── PULSING NOTIFICATION ── */
+@keyframes badgePop{0%{transform:scale(0.8);}60%{transform:scale(1.15);}100%{transform:scale(1);}}
+.badge-new-notif{position:fixed;top:20px;right:20px;background:var(--accent2);color:var(--bg);padding:10px 16px;border-radius:12px;font-size:13px;font-weight:600;z-index:300;animation:badgePop .4s ease;}
 </style>
 </head>
 <body>
@@ -1936,6 +2080,13 @@ table.xl th.today-col{background:rgba(184,134,11,.15)!important;}
           <div class="cat-card-sub">Calculator · Habits · Affirmations</div>
         </div>
       </div>
+      <div class="app-card cat-card" id="go-hub-health" style="--card-accent:#FF6B6B;">
+        <div class="app-card-icon" style="font-size:26px;width:48px;height:48px;">💪</div>
+        <div class="app-card-body">
+          <div class="app-card-title" style="font-size:15px;">Health</div>
+          <div class="cat-card-sub">Workout · Caffeine · Metrics · Meds</div>
+        </div>
+      </div>
       <div class="app-card cat-card" id="go-screen-data" style="--card-accent:#4A90D9;">
         <div class="app-card-icon" style="font-size:26px;width:48px;height:48px;">💾</div>
         <div class="app-card-body">
@@ -1983,6 +2134,10 @@ table.xl th.today-col{background:rgba(184,134,11,.15)!important;}
         <div class="app-card-icon">🏆</div>
         <div class="app-card-body"><div class="app-card-title">Goal Milestones</div></div>
       </div>
+      <div class="app-card" id="go-kanban" style="--card-accent:#7B68EE;">
+        <div class="app-card-icon">📋</div>
+        <div class="app-card-body"><div class="app-card-title">Kanban Board</div></div>
+      </div>
     </div>
   </div>
 </div>
@@ -2013,6 +2168,18 @@ table.xl th.today-col{background:rgba(184,134,11,.15)!important;}
       <div class="app-card" id="go-breathe" style="--card-accent:#60AACC;">
         <div class="app-card-icon">🌬️</div>
         <div class="app-card-body"><div class="app-card-title">Breathe</div></div>
+      </div>
+      <div class="app-card" id="go-typing" style="--card-accent:#FF6B6B;">
+        <div class="app-card-icon">⌨️</div>
+        <div class="app-card-body"><div class="app-card-title">Typing Test</div></div>
+      </div>
+      <div class="app-card" id="go-wordle" style="--card-accent:#538D4E;">
+        <div class="app-card-icon">🟩</div>
+        <div class="app-card-body"><div class="app-card-title">Wordle</div></div>
+      </div>
+      <div class="app-card" id="go-memory" style="--card-accent:#C9A84C;">
+        <div class="app-card-icon">🃏</div>
+        <div class="app-card-body"><div class="app-card-title">Memory Flip</div></div>
       </div>
     </div>
   </div>
@@ -2057,6 +2224,14 @@ table.xl th.today-col{background:rgba(184,134,11,.15)!important;}
         <div class="app-card-icon">💧</div>
         <div class="app-card-body"><div class="app-card-title">Water Intake</div></div>
       </div>
+      <div class="app-card" id="go-savings" style="--card-accent:#F0A500;">
+        <div class="app-card-icon">🎯</div>
+        <div class="app-card-body"><div class="app-card-title">Savings Goals</div></div>
+      </div>
+      <div class="app-card" id="go-subscriptions" style="--card-accent:#DA70D6;">
+        <div class="app-card-icon">📱</div>
+        <div class="app-card-body"><div class="app-card-title">Subscriptions</div></div>
+      </div>
     </div>
   </div>
 </div>
@@ -2087,6 +2262,57 @@ table.xl th.today-col{background:rgba(184,134,11,.15)!important;}
       <div class="app-card" id="go-affirmations" style="--card-accent:#E07070;">
         <div class="app-card-icon">✨</div>
         <div class="app-card-body"><div class="app-card-title">Affirmations</div></div>
+      </div>
+      <div class="app-card" id="go-wordofday" style="--card-accent:#48CAE4;">
+        <div class="app-card-icon">📖</div>
+        <div class="app-card-body"><div class="app-card-title">Word of Day</div></div>
+      </div>
+      <div class="app-card" id="go-worldclock" style="--card-accent:#44CF6C;">
+        <div class="app-card-icon">🌍</div>
+        <div class="app-card-body"><div class="app-card-title">World Clock</div></div>
+      </div>
+      <div class="app-card" id="go-colorpalette" style="--card-accent:#FF6B9D;">
+        <div class="app-card-icon">🎨</div>
+        <div class="app-card-body"><div class="app-card-title">Color Palette</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     HUB — HEALTH
+═══════════════════════════════════════════ -->
+<div class="screen" id="screen-hub-health">
+  <div class="land-wrap">
+    <div class="land-topbar">
+      <button class="hub-back-btn" id="back-hub-health">← Home</button>
+      <div class="land-logo">💪 <span>Health</span></div>
+      <button class="theme-btn" id="theme-btn-hub-health"><div class="theme-knob" id="theme-knob-hub-health">☀️</div></button>
+    </div>
+    <div class="land-hero" style="margin-bottom:1rem;">
+      <div class="land-hero-greeting">Your body, your data ✦</div>
+      <h1>Track it,<br/><em>improve</em> it.</h1>
+    </div>
+    <div class="app-cards">
+      <div class="app-card" id="go-workout" style="--card-accent:#FF6B6B;">
+        <div class="app-card-icon">🏋️</div>
+        <div class="app-card-body"><div class="app-card-title">Workout Log</div></div>
+      </div>
+      <div class="app-card" id="go-caffeine" style="--card-accent:#8B6914;">
+        <div class="app-card-icon">☕</div>
+        <div class="app-card-body"><div class="app-card-title">Caffeine</div></div>
+      </div>
+      <div class="app-card" id="go-bodymetrics" style="--card-accent:#4169E1;">
+        <div class="app-card-icon">📏</div>
+        <div class="app-card-body"><div class="app-card-title">Body Metrics</div></div>
+      </div>
+      <div class="app-card" id="go-medication" style="--card-accent:#32CD32;">
+        <div class="app-card-icon">💊</div>
+        <div class="app-card-body"><div class="app-card-title">Medication</div></div>
+      </div>
+      <div class="app-card" id="go-menstrual" style="--card-accent:#FF69B4;">
+        <div class="app-card-icon">🌺</div>
+        <div class="app-card-body"><div class="app-card-title">Cycle Tracker</div></div>
       </div>
     </div>
   </div>
@@ -2546,6 +2772,22 @@ table.xl th.today-col{background:rgba(184,134,11,.15)!important;}
       </div>
 
       <div class="pom-log" id="pom-log"></div>
+
+      <div style="margin-top:12px;border-top:1px solid var(--border);padding-top:12px;">
+        <div style="font-size:11px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:var(--text3);margin-bottom:6px;">⚡ Log a distraction</div>
+        <div class="distract-btns">
+          <button class="distract-btn" data-distract="📱 Phone">📱 Phone</button>
+          <button class="distract-btn" data-distract="🔊 Noise">🔊 Noise</button>
+          <button class="distract-btn" data-distract="💭 Thought">💭 Thought</button>
+          <button class="distract-btn" data-distract="👤 Person">👤 Person</button>
+          <button class="distract-btn" data-distract="✏️ Other">✏️ Other</button>
+        </div>
+        <div class="distract-log-list" id="pom-distract-list"></div>
+      </div>
+      <div style="margin-top:10px;border-top:1px solid var(--border);padding-top:10px;">
+        <div style="font-size:11px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:var(--text3);margin-bottom:6px;">📝 Session note</div>
+        <textarea id="pom-session-note" placeholder="What did you work on?" rows="2" style="width:100%;padding:8px 10px;background:var(--surface2);border:1px solid var(--border);border-radius:8px;font-size:13px;color:var(--text);font-family:'Outfit',sans-serif;resize:none;outline:none;"></textarea>
+      </div>
     </div>
   </div>
 </div>
@@ -3090,24 +3332,392 @@ table.xl th.today-col{background:rgba(184,134,11,.15)!important;}
         <button class="theme-btn" id="theme-btn-data"><div class="theme-knob" id="theme-knob-data">☀️</div></button>
       </div>
     </div>
-    <div style="display:flex;flex-direction:column;gap:16px;margin-top:8px;">
-      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:16px;padding:24px;">
-        <div style="font-size:32px;margin-bottom:12px;">⬇️</div>
-        <div style="font-weight:600;font-size:16px;margin-bottom:6px;">Export Data</div>
-        <div style="font-size:13px;color:var(--text2);margin-bottom:16px;">Download all your app data (tasks, habits, journal, finance, etc.) as a JSON backup file.</div>
-        <button id="data-export-btn" style="width:100%;padding:12px;background:var(--accent);color:var(--bg);border:none;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;font-family:'Outfit',sans-serif;">Download Backup</button>
+    <div style="display:flex;flex-direction:column;gap:12px;margin-top:8px;">
+      <!-- XP bar -->
+      <div class="xp-bar-wrap">
+        <div class="xp-bar-row"><span id="xp-label">Level 1 · 0 XP</span><span id="xp-next">100 XP to next</span></div>
+        <div class="xp-bar-track"><div class="xp-bar-fill" id="xp-bar" style="width:0%;"></div></div>
       </div>
-      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:16px;padding:24px;">
-        <div style="font-size:32px;margin-bottom:12px;">⬆️</div>
-        <div style="font-weight:600;font-size:16px;margin-bottom:6px;">Import Data</div>
-        <div style="font-size:13px;color:var(--text2);margin-bottom:16px;">Restore from a previously exported backup file. This will overwrite matching data.</div>
-        <label style="display:block;width:100%;padding:12px;background:var(--surface);border:1px solid var(--border2);border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;text-align:center;font-family:'Outfit',sans-serif;">
+      <!-- Accent colour -->
+      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:14px;padding:16px;">
+        <div style="font-weight:600;font-size:14px;margin-bottom:10px;">🎨 Accent Colour</div>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <input type="color" id="accent-picker" value="#B8860B" style="width:48px;height:40px;border:none;border-radius:8px;cursor:pointer;background:none;padding:0;"/>
+          <div style="flex:1;font-size:13px;color:var(--text2);">Pick your app accent colour. Changes the gold highlights throughout.</div>
+          <button id="accent-reset-btn" class="btn-ghost" style="height:32px;font-size:12px;">Reset</button>
+        </div>
+      </div>
+      <!-- Export/Import -->
+      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:14px;padding:16px;">
+        <div style="font-weight:600;font-size:14px;margin-bottom:10px;">⬇️ Export Data</div>
+        <div style="font-size:13px;color:var(--text2);margin-bottom:10px;">Download all app data as a JSON backup file, or export your journal as text.</div>
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <button id="data-export-btn" style="width:100%;padding:10px;background:var(--accent);color:var(--bg);border:none;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;font-family:'Outfit',sans-serif;">Download Full Backup (JSON)</button>
+          <button id="data-export-journal-btn" style="width:100%;padding:10px;background:var(--surface);border:1px solid var(--border2);border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;font-family:'Outfit',sans-serif;color:var(--text);">Export Journal as Text (.txt)</button>
+          <button id="data-share-btn" style="width:100%;padding:10px;background:var(--surface);border:1px solid var(--border2);border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;font-family:'Outfit',sans-serif;color:var(--text);">Share Daily Summary (Image)</button>
+        </div>
+      </div>
+      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:14px;padding:16px;">
+        <div style="font-weight:600;font-size:14px;margin-bottom:10px;">⬆️ Import Data</div>
+        <div style="font-size:13px;color:var(--text2);margin-bottom:10px;">Restore from a previously exported backup. Overwrites matching data.</div>
+        <label style="display:block;width:100%;padding:10px;background:var(--surface);border:1px solid var(--border2);border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;text-align:center;font-family:'Outfit',sans-serif;color:var(--text);">
           Choose Backup File
           <input type="file" id="data-import-input" accept=".json" style="display:none;"/>
         </label>
       </div>
       <div id="data-status" style="text-align:center;font-size:13px;color:var(--accent3);min-height:20px;padding:4px 0;"></div>
     </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     KANBAN BOARD
+══════════════════════════════════ -->
+<div class="screen" id="screen-kanban">
+  <div class="app-wrap">
+    <div class="app-topbar">
+      <button class="back-btn" id="back-kanban">← Focus</button>
+      <div class="app-title">📋 Kanban Board</div>
+      <div class="topbar-right"><button class="theme-btn" id="theme-btn-kanban"><div class="theme-knob" id="theme-knob-kanban">☀️</div></button></div>
+    </div>
+    <div class="kanban-board" id="kanban-board">
+      <div class="kanban-col"><div class="kanban-col-title">📌 To Do</div><div id="kanban-todo"></div><div class="kanban-add-row"><input id="kanban-todo-in" placeholder="Add task…"/><button class="btn-primary" style="height:30px;font-size:12px;" data-kadd="todo">+</button></div></div>
+      <div class="kanban-col"><div class="kanban-col-title">⚡ In Progress</div><div id="kanban-prog"></div><div class="kanban-add-row"><input id="kanban-prog-in" placeholder="Add task…"/><button class="btn-primary" style="height:30px;font-size:12px;" data-kadd="prog">+</button></div></div>
+      <div class="kanban-col"><div class="kanban-col-title">✅ Done</div><div id="kanban-done"></div><div class="kanban-add-row"><input id="kanban-done-in" placeholder="Add task…"/><button class="btn-primary" style="height:30px;font-size:12px;" data-kadd="done">+</button></div></div>
+    </div>
+  </div>
+</div>
+<!-- ══════════════════════════════════
+     SAVINGS GOALS
+══════════════════════════════════ -->
+<div class="screen" id="screen-savings">
+  <div class="app-wrap">
+    <div class="app-topbar">
+      <button class="back-btn" id="back-savings">← Trackers</button>
+      <div class="app-title">🎯 Savings Goals</div>
+      <div class="topbar-right"><button class="theme-btn" id="theme-btn-savings"><div class="theme-knob" id="theme-knob-savings">☀️</div></button></div>
+    </div>
+    <div class="card">
+      <div class="card-title">New Goal</div>
+      <div class="field-row" style="margin-bottom:8px;">
+        <div class="field" style="flex:2"><input type="text" id="sav-name" placeholder="Goal name (e.g. Vacation)" maxlength="40"/></div>
+        <div class="field"><input type="number" id="sav-target" placeholder="Target ₹" min="1"/></div>
+      </div>
+      <button class="btn-primary" id="sav-add-btn">+ Add Goal</button>
+    </div>
+    <div id="sav-list"></div>
+  </div>
+</div>
+<!-- ══════════════════════════════════
+     SUBSCRIPTIONS
+══════════════════════════════════ -->
+<div class="screen" id="screen-subscriptions">
+  <div class="app-wrap">
+    <div class="app-topbar">
+      <button class="back-btn" id="back-subscriptions">← Trackers</button>
+      <div class="app-title">📱 Subscriptions</div>
+      <div class="topbar-right"><button class="theme-btn" id="theme-btn-subscriptions"><div class="theme-knob" id="theme-knob-subscriptions">☀️</div></button></div>
+    </div>
+    <div class="stats-strip">
+      <div class="stat-box"><div class="stat-val" id="sub-monthly-total">₹0</div><div class="stat-lbl">Monthly</div></div>
+      <div class="stat-box"><div class="stat-val orange" id="sub-annual-total">₹0</div><div class="stat-lbl">Annual</div></div>
+      <div class="stat-box"><div class="stat-val" id="sub-count">0</div><div class="stat-lbl">Active</div></div>
+    </div>
+    <div class="card">
+      <div class="card-title">Add Subscription</div>
+      <div class="field-row" style="margin-bottom:8px;">
+        <div class="field" style="flex:1"><input type="text" id="sub-name" placeholder="Name (Netflix, Gym…)" maxlength="40"/></div>
+        <div class="field"><input type="number" id="sub-amount" placeholder="Amount" min="0"/></div>
+        <div class="field"><select id="sub-freq"><option value="monthly">Monthly</option><option value="annual">Annual</option></select></div>
+      </div>
+      <div class="field-row">
+        <div class="field"><input type="text" id="sub-icon" placeholder="Emoji icon" maxlength="2" style="width:60px;"/></div>
+        <button class="btn-primary" id="sub-add-btn">+ Add</button>
+      </div>
+    </div>
+    <div id="sub-list"></div>
+  </div>
+</div>
+<!-- ══════════════════════════════════
+     WORKOUT LOG
+══════════════════════════════════ -->
+<div class="screen" id="screen-workout">
+  <div class="app-wrap">
+    <div class="app-topbar">
+      <button class="back-btn" id="back-workout">← Health</button>
+      <div class="app-title">🏋️ Workout Log</div>
+      <div class="topbar-right"><button class="theme-btn" id="theme-btn-workout"><div class="theme-knob" id="theme-knob-workout">☀️</div></button></div>
+    </div>
+    <div class="stats-strip">
+      <div class="stat-box"><div class="stat-val orange" id="wo-streak">0</div><div class="stat-lbl">Streak</div></div>
+      <div class="stat-box"><div class="stat-val" id="wo-total">0</div><div class="stat-lbl">Total</div></div>
+      <div class="stat-box"><div class="stat-val green" id="wo-this-week">0</div><div class="stat-lbl">This week</div></div>
+    </div>
+    <div class="card">
+      <div class="card-title">Log Workout</div>
+      <div class="field-row" style="margin-bottom:8px;">
+        <div class="field" style="flex:2">
+          <select id="wo-type">
+            <option value="🏃 Running">🏃 Running</option><option value="🚴 Cycling">🚴 Cycling</option>
+            <option value="🏊 Swimming">🏊 Swimming</option><option value="🏋️ Weights">🏋️ Weights</option>
+            <option value="🧘 Yoga">🧘 Yoga</option><option value="⚽ Sport">⚽ Sport</option>
+            <option value="🚶 Walking">🚶 Walking</option><option value="💃 Dance">💃 Dance</option><option value="Other">✨ Other</option>
+          </select>
+        </div>
+        <div class="field"><input type="number" id="wo-duration" placeholder="Min" min="1" max="600"/></div>
+        <div class="field"><select id="wo-intensity"><option value="Easy">Easy</option><option value="Moderate" selected>Moderate</option><option value="Hard">Hard</option></select></div>
+      </div>
+      <div class="field-row">
+        <div class="field" style="flex:1"><input type="text" id="wo-note" placeholder="Notes (optional)" maxlength="60"/></div>
+        <button class="btn-primary" id="wo-add-btn">+ Log</button>
+      </div>
+    </div>
+    <div id="wo-list"></div>
+  </div>
+</div>
+<!-- ══════════════════════════════════
+     CAFFEINE TRACKER
+══════════════════════════════════ -->
+<div class="screen" id="screen-caffeine">
+  <div class="app-wrap">
+    <div class="app-topbar">
+      <button class="back-btn" id="back-caffeine">← Health</button>
+      <div class="app-title">☕ Caffeine Tracker</div>
+      <div class="topbar-right"><button class="theme-btn" id="theme-btn-caffeine"><div class="theme-knob" id="theme-knob-caffeine">☀️</div></button></div>
+    </div>
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:8px;">
+        <div><div style="font-size:32px;font-weight:700;font-family:'Cormorant Garamond',serif;" id="caff-total">0 mg</div><div style="font-size:12px;color:var(--text3);">today · safe limit 400mg</div></div>
+        <button class="btn-ghost" id="caff-reset-btn" style="height:30px;font-size:12px;">Reset</button>
+      </div>
+      <div class="progress-track"><div class="progress-fill" id="caff-bar" style="background:#8B6914;"></div></div>
+    </div>
+    <div class="caff-grid">
+      <button class="caff-btn" data-caff="Coffee" data-mg="95"><span class="caff-btn-icon">☕</span><span class="caff-btn-name">Coffee</span><span class="caff-btn-mg">~95mg</span></button>
+      <button class="caff-btn" data-caff="Espresso" data-mg="63"><span class="caff-btn-icon">🍵</span><span class="caff-btn-name">Espresso</span><span class="caff-btn-mg">~63mg</span></button>
+      <button class="caff-btn" data-caff="Tea" data-mg="47"><span class="caff-btn-icon">🫖</span><span class="caff-btn-name">Tea</span><span class="caff-btn-mg">~47mg</span></button>
+      <button class="caff-btn" data-caff="Energy Drink" data-mg="80"><span class="caff-btn-icon">⚡</span><span class="caff-btn-name">Energy Drink</span><span class="caff-btn-mg">~80mg</span></button>
+      <button class="caff-btn" data-caff="Cold Brew" data-mg="150"><span class="caff-btn-icon">🧋</span><span class="caff-btn-name">Cold Brew</span><span class="caff-btn-mg">~150mg</span></button>
+      <button class="caff-btn" data-caff="Matcha" data-mg="30"><span class="caff-btn-icon">🍵</span><span class="caff-btn-name">Matcha</span><span class="caff-btn-mg">~30mg</span></button>
+    </div>
+    <div class="card"><div class="card-title">Today's log</div><div id="caff-log"></div></div>
+  </div>
+</div>
+<!-- ══════════════════════════════════
+     BODY METRICS
+══════════════════════════════════ -->
+<div class="screen" id="screen-bodymetrics">
+  <div class="app-wrap">
+    <div class="app-topbar">
+      <button class="back-btn" id="back-bodymetrics">← Health</button>
+      <div class="app-title">📏 Body Metrics</div>
+      <div class="topbar-right"><button class="theme-btn" id="theme-btn-bodymetrics"><div class="theme-knob" id="theme-knob-bodymetrics">☀️</div></button></div>
+    </div>
+    <div class="card">
+      <div class="card-title">Add Entry</div>
+      <div class="field-row" style="margin-bottom:8px;">
+        <div class="field" style="flex:2"><input type="text" id="bm-metric" placeholder="Metric (e.g. Weight, Steps)" maxlength="30"/></div>
+        <div class="field"><input type="number" id="bm-value" placeholder="Value" step="0.1"/></div>
+        <div class="field"><input type="text" id="bm-unit" placeholder="Unit (kg, steps)" maxlength="10"/></div>
+      </div>
+      <button class="btn-primary" id="bm-add-btn">+ Log</button>
+    </div>
+    <div id="bm-charts"></div>
+  </div>
+</div>
+<!-- ══════════════════════════════════
+     MEDICATION REMINDER
+══════════════════════════════════ -->
+<div class="screen" id="screen-medication">
+  <div class="app-wrap">
+    <div class="app-topbar">
+      <button class="back-btn" id="back-medication">← Health</button>
+      <div class="app-title">💊 Medication</div>
+      <div class="topbar-right"><button class="theme-btn" id="theme-btn-medication"><div class="theme-knob" id="theme-knob-medication">☀️</div></button></div>
+    </div>
+    <div class="card">
+      <div class="card-title">Add Medication</div>
+      <div class="field-row" style="margin-bottom:8px;">
+        <div class="field" style="flex:2"><input type="text" id="med-name" placeholder="Medication name" maxlength="50"/></div>
+        <div class="field"><input type="time" id="med-time"/></div>
+        <div class="field"><input type="text" id="med-dose" placeholder="Dose (e.g. 10mg)" maxlength="20"/></div>
+      </div>
+      <button class="btn-primary" id="med-add-btn">+ Add</button>
+    </div>
+    <div id="med-list"></div>
+  </div>
+</div>
+<!-- ══════════════════════════════════
+     MENSTRUAL CYCLE TRACKER
+══════════════════════════════════ -->
+<div class="screen" id="screen-menstrual">
+  <div class="app-wrap">
+    <div class="app-topbar">
+      <button class="back-btn" id="back-menstrual">← Health</button>
+      <div class="app-title">🌺 Cycle Tracker</div>
+      <div class="topbar-right"><button class="theme-btn" id="theme-btn-menstrual"><div class="theme-knob" id="theme-knob-menstrual">☀️</div></button></div>
+    </div>
+    <div class="stats-strip">
+      <div class="stat-box"><div class="stat-val" id="cyc-avg-len">—</div><div class="stat-lbl">Avg cycle</div></div>
+      <div class="stat-box"><div class="stat-val" id="cyc-last">—</div><div class="stat-lbl">Last period</div></div>
+      <div class="stat-box"><div class="stat-val green" id="cyc-next">—</div><div class="stat-lbl">Next est.</div></div>
+    </div>
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+        <div class="section-title" id="cyc-month-label"></div>
+        <div style="display:flex;gap:6px;"><button class="tt-nav-btn" id="cyc-prev">‹</button><button class="tt-nav-btn" id="cyc-next-btn">›</button></div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:2px;margin-bottom:4px;">
+        <div style="text-align:center;font-size:10px;font-weight:700;color:var(--text3);">S</div><div style="text-align:center;font-size:10px;font-weight:700;color:var(--text3);">M</div><div style="text-align:center;font-size:10px;font-weight:700;color:var(--text3);">T</div><div style="text-align:center;font-size:10px;font-weight:700;color:var(--text3);">W</div><div style="text-align:center;font-size:10px;font-weight:700;color:var(--text3);">T</div><div style="text-align:center;font-size:10px;font-weight:700;color:var(--text3);">F</div><div style="text-align:center;font-size:10px;font-weight:700;color:var(--text3);">S</div>
+      </div>
+      <div class="cycle-cal" id="cyc-cal"></div>
+      <div style="display:flex;gap:10px;font-size:11px;color:var(--text3);margin-top:8px;flex-wrap:wrap;">
+        <span style="display:flex;align-items:center;gap:4px;"><span style="width:12px;height:12px;background:#FF69B4;border-radius:3px;display:inline-block;"></span>Period</span>
+        <span style="display:flex;align-items:center;gap:4px;"><span style="width:12px;height:12px;background:rgba(255,105,180,.2);border:1px solid rgba(255,105,180,.4);border-radius:3px;display:inline-block;"></span>Predicted</span>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ══════════════════════════════════
+     WORD OF THE DAY
+══════════════════════════════════ -->
+<div class="screen" id="screen-wordofday">
+  <div class="app-wrap">
+    <div class="app-topbar">
+      <button class="back-btn" id="back-wordofday">← Essentials</button>
+      <div class="app-title">📖 Word of the Day</div>
+      <div class="topbar-right"><button class="theme-btn" id="theme-btn-wordofday"><div class="theme-knob" id="theme-knob-wordofday">☀️</div></button></div>
+    </div>
+    <div class="card" id="wod-card"></div>
+    <div style="display:flex;gap:8px;margin:10px 0;">
+      <button class="btn-primary" id="wod-save-btn">Save to Glossary</button>
+      <button class="btn-ghost" id="wod-random-btn">Random word</button>
+    </div>
+    <div class="card">
+      <div class="card-title">My Glossary</div>
+      <div id="wod-glossary"></div>
+    </div>
+  </div>
+</div>
+<!-- ══════════════════════════════════
+     WORLD CLOCK
+══════════════════════════════════ -->
+<div class="screen" id="screen-worldclock">
+  <div class="app-wrap">
+    <div class="app-topbar">
+      <button class="back-btn" id="back-worldclock">← Essentials</button>
+      <div class="app-title">🌍 World Clock</div>
+      <div class="topbar-right"><button class="theme-btn" id="theme-btn-worldclock"><div class="theme-knob" id="theme-knob-worldclock">☀️</div></button></div>
+    </div>
+    <div class="card">
+      <div class="card-title">Add Timezone</div>
+      <div class="field-row">
+        <div class="field" style="flex:2">
+          <select id="wc-tz-select">
+            <option value="America/New_York">New York (EST/EDT)</option>
+            <option value="America/Los_Angeles">Los Angeles (PST/PDT)</option>
+            <option value="America/Chicago">Chicago (CST/CDT)</option>
+            <option value="Europe/London">London (GMT/BST)</option>
+            <option value="Europe/Paris">Paris (CET/CEST)</option>
+            <option value="Europe/Berlin">Berlin (CET/CEST)</option>
+            <option value="Asia/Dubai">Dubai (GST)</option>
+            <option value="Asia/Kolkata">India (IST)</option>
+            <option value="Asia/Singapore">Singapore (SGT)</option>
+            <option value="Asia/Tokyo">Tokyo (JST)</option>
+            <option value="Asia/Shanghai">Shanghai (CST)</option>
+            <option value="Australia/Sydney">Sydney (AEST)</option>
+            <option value="Pacific/Auckland">Auckland (NZST)</option>
+            <option value="America/Sao_Paulo">São Paulo (BRT)</option>
+          </select>
+        </div>
+        <button class="btn-primary" id="wc-add-btn">+ Add</button>
+      </div>
+    </div>
+    <div id="wc-list"></div>
+  </div>
+</div>
+<!-- ══════════════════════════════════
+     COLOR PALETTE
+══════════════════════════════════ -->
+<div class="screen" id="screen-colorpalette">
+  <div class="app-wrap">
+    <div class="app-topbar">
+      <button class="back-btn" id="back-colorpalette">← Essentials</button>
+      <div class="app-title">🎨 Color Palette</div>
+      <div class="topbar-right"><button class="theme-btn" id="theme-btn-colorpalette"><div class="theme-knob" id="theme-knob-colorpalette">☀️</div></button></div>
+    </div>
+    <div class="card">
+      <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;">
+        <input type="color" id="cp-picker" value="#C9A84C" style="width:64px;height:64px;border:none;border-radius:12px;cursor:pointer;background:none;padding:0;"/>
+        <div style="flex:1;">
+          <div id="cp-preview" style="height:64px;border-radius:12px;margin-bottom:8px;background:#C9A84C;"></div>
+          <div class="color-info-row" id="cp-info"></div>
+        </div>
+      </div>
+      <button class="btn-primary" id="cp-save-btn" style="margin-top:10px;width:100%;">Save to Palette</button>
+    </div>
+    <div class="section-title" style="margin:10px 0 8px;">Saved Colours</div>
+    <div class="palette-row" id="cp-palette"></div>
+  </div>
+</div>
+<!-- ══════════════════════════════════
+     TYPING SPEED TEST
+══════════════════════════════════ -->
+<div class="screen" id="screen-typing">
+  <div class="app-wrap">
+    <div class="app-topbar">
+      <button class="back-btn" id="back-typing">← Recharge</button>
+      <div class="app-title">⌨️ Typing Test</div>
+      <div class="topbar-right"><button class="theme-btn" id="theme-btn-typing"><div class="theme-knob" id="theme-knob-typing">☀️</div></button></div>
+    </div>
+    <div class="stats-strip">
+      <div class="stat-box"><div class="stat-val orange" id="typ-wpm">—</div><div class="stat-lbl">WPM</div></div>
+      <div class="stat-box"><div class="stat-val green" id="typ-acc">—</div><div class="stat-lbl">Accuracy</div></div>
+      <div class="stat-box"><div class="stat-val" id="typ-best">—</div><div class="stat-lbl">Best WPM</div></div>
+    </div>
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;margin-bottom:8px;">
+        <div id="typ-timer" style="font-size:28px;font-weight:700;font-family:'Cormorant Garamond',serif;color:var(--accent2);">60</div>
+        <button class="btn-ghost" id="typ-restart" style="height:30px;font-size:12px;">Restart</button>
+      </div>
+      <div class="typing-para" id="typ-display"></div>
+      <input type="text" id="typ-input" placeholder="Start typing here…" style="width:100%;height:40px;padding:0 12px;background:var(--surface2);border:1px solid var(--border);border-radius:10px;font-size:14px;color:var(--text);font-family:'Outfit',sans-serif;outline:none;margin-top:8px;" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+    </div>
+  </div>
+</div>
+<!-- ══════════════════════════════════
+     WORDLE
+══════════════════════════════════ -->
+<div class="screen" id="screen-wordle">
+  <div class="app-wrap">
+    <div class="app-topbar">
+      <button class="back-btn" id="back-wordle">← Recharge</button>
+      <div class="app-title">🟩 Wordle</div>
+      <div class="topbar-right"><button class="theme-btn" id="theme-btn-wordle"><div class="theme-knob" id="theme-knob-wordle">☀️</div></button></div>
+    </div>
+    <div style="text-align:center;font-size:13px;color:var(--text3);margin-bottom:4px;" id="wrd-status">Guess the 5-letter word!</div>
+    <div class="wordle-grid" id="wrd-grid"></div>
+    <div class="wordle-keyboard" id="wrd-keyboard"></div>
+    <div style="text-align:center;margin-top:12px;"><button class="btn-ghost" id="wrd-new-btn" style="display:none;">New Word →</button></div>
+  </div>
+</div>
+<!-- ══════════════════════════════════
+     MEMORY FLIP
+══════════════════════════════════ -->
+<div class="screen" id="screen-memory">
+  <div class="app-wrap">
+    <div class="app-topbar">
+      <button class="back-btn" id="back-memory">← Recharge</button>
+      <div class="app-title">🃏 Memory Flip</div>
+      <div class="topbar-right"><button class="theme-btn" id="theme-btn-memory"><div class="theme-knob" id="theme-knob-memory">☀️</div></button></div>
+    </div>
+    <div class="stats-strip">
+      <div class="stat-box"><div class="stat-val orange" id="mem-moves">0</div><div class="stat-lbl">Moves</div></div>
+      <div class="stat-box"><div class="stat-val green" id="mem-pairs">0</div><div class="stat-lbl">Pairs</div></div>
+      <div class="stat-box"><div class="stat-val" id="mem-best">—</div><div class="stat-lbl">Best</div></div>
+    </div>
+    <div class="mem-grid" id="mem-grid"></div>
+    <div style="text-align:center;margin-top:12px;"><button class="btn-ghost" id="mem-new-btn">New Game</button></div>
   </div>
 </div>
 
@@ -3268,7 +3878,7 @@ document.getElementById('intro-skip').addEventListener('click',function(){
 /* ── THEME ── */
 var curTheme = localStorage.getItem('ps_theme')||'light';
 document.documentElement.setAttribute('data-theme',curTheme);
-var ALL_SCREEN_IDS = ['land','pizza','tt','monthly','journal','affirmations','tictactoe','pomodoro','habits','calc','fidget','hub-focus','hub-recharge','hub-trackers','hub-essentials','eisenhower','goals','breathe','moodtracker','finance','sleep','water','data'];
+var ALL_SCREEN_IDS = ['land','pizza','tt','monthly','journal','affirmations','tictactoe','pomodoro','habits','calc','fidget','hub-focus','hub-recharge','hub-trackers','hub-essentials','hub-health','eisenhower','goals','breathe','moodtracker','finance','sleep','water','data','kanban','savings','subscriptions','workout','caffeine','bodymetrics','medication','menstrual','wordofday','worldclock','colorpalette','typing','wordle','memory'];
 ALL_SCREEN_IDS.forEach(function(id){
   var knob=document.getElementById('theme-knob-'+id);
   if(knob) knob.textContent=curTheme==='dark'?'🌙':'☀️';
@@ -3298,12 +3908,14 @@ document.getElementById('go-hub-focus').addEventListener('click',function(){show
 document.getElementById('go-hub-recharge').addEventListener('click',function(){showScreen('screen-hub-recharge');});
 document.getElementById('go-hub-trackers').addEventListener('click',function(){showScreen('screen-hub-trackers');});
 document.getElementById('go-hub-essentials').addEventListener('click',function(){showScreen('screen-hub-essentials');});
+document.getElementById('go-hub-health').addEventListener('click',function(){showScreen('screen-hub-health');});
 
 // Hub → Landing
 document.getElementById('back-hub-focus').addEventListener('click',function(){showScreen('screen-landing');});
 document.getElementById('back-hub-recharge').addEventListener('click',function(){showScreen('screen-landing');});
 document.getElementById('back-hub-trackers').addEventListener('click',function(){showScreen('screen-landing');});
 document.getElementById('back-hub-essentials').addEventListener('click',function(){showScreen('screen-landing');});
+document.getElementById('back-hub-health').addEventListener('click',function(){showScreen('screen-landing');});
 
 // Hub → App (each app goes back to its hub)
 document.getElementById('go-pomodoro').addEventListener('click',function(){showScreen('screen-pomodoro');pomRenderStats();});
@@ -5184,6 +5796,30 @@ document.getElementById('water-goal-in').addEventListener('change',function(){
   waterData.goal=parseInt(this.value)||2000;saveJSON('ps_water',waterData);waterRender();
 });
 
+/* ── NEW APP NAVIGATION ── */
+var _navMap=[
+  ['go-kanban','screen-kanban',function(){kbRender();},'back-kanban','screen-hub-focus'],
+  ['go-savings','screen-savings',function(){savRender();},'back-savings','screen-hub-trackers'],
+  ['go-subscriptions','screen-subscriptions',function(){subRender();},'back-subscriptions','screen-hub-trackers'],
+  ['go-workout','screen-workout',function(){woRender();},'back-workout','screen-hub-health'],
+  ['go-caffeine','screen-caffeine',function(){caffRender();},'back-caffeine','screen-hub-health'],
+  ['go-bodymetrics','screen-bodymetrics',function(){bmRender();},'back-bodymetrics','screen-hub-health'],
+  ['go-medication','screen-medication',function(){medRender();},'back-medication','screen-hub-health'],
+  ['go-menstrual','screen-menstrual',function(){cycRender();},'back-menstrual','screen-hub-health'],
+  ['go-wordofday','screen-wordofday',function(){wodRender();},'back-wordofday','screen-hub-essentials'],
+  ['go-worldclock','screen-worldclock',function(){wcRender();},'back-worldclock','screen-hub-essentials'],
+  ['go-colorpalette','screen-colorpalette',function(){cpRender();},'back-colorpalette','screen-hub-essentials'],
+  ['go-typing','screen-typing',function(){typInit();},'back-typing','screen-hub-recharge'],
+  ['go-wordle','screen-wordle',function(){wrdInit();},'back-wordle','screen-hub-recharge'],
+  ['go-memory','screen-memory',function(){memInit();},'back-memory','screen-hub-recharge'],
+];
+_navMap.forEach(function(r){
+  var goEl=document.getElementById(r[0]);
+  if(goEl) goEl.addEventListener('click',function(){showScreen(r[1]);r[2]();});
+  var backEl=document.getElementById(r[3]);
+  if(backEl) backEl.addEventListener('click',function(){showScreen(r[4]);});
+});
+
 /* ═══════════════════════════════════════════════════════
    DATA — EXPORT / IMPORT
 ═══════════════════════════════════════════════════════ */
@@ -5223,6 +5859,660 @@ document.getElementById('data-import-input').addEventListener('change',function(
   };
   reader.readAsText(file);
 });
+
+/* ═══════════════════════════════════════════════════════
+   POMODORO — DISTRACTION LOG + SESSION NOTES
+═══════════════════════════════════════════════════════ */
+var pomDistractions=[];
+document.querySelectorAll('.distract-btn').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    pomDistractions.push({tag:btn.getAttribute('data-distract'),time:new Date().toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit'})});
+    var list=document.getElementById('pom-distract-list');
+    list.innerHTML=pomDistractions.map(function(d){return '<div class="distract-log-item">'+d.tag+' — '+d.time+'</div>';}).join('');
+  });
+});
+
+/* ═══════════════════════════════════════════════════════
+   KANBAN BOARD
+═══════════════════════════════════════════════════════ */
+var kbData=loadJSON('ps_kanban',{todo:[],prog:[],done:[]});
+function kbRender(){
+  ['todo','prog','done'].forEach(function(col){
+    var list=document.getElementById('kanban-'+col);
+    list.innerHTML='';
+    kbData[col].forEach(function(item){
+      var card=document.createElement('div');card.className='kanban-card';
+      var prev=col==='todo'?null:'todo',next=col==='done'?null:(col==='todo'?'prog':'done');
+      card.innerHTML='<div class="kanban-card-text">'+esc(item.text)+'</div>'
+        +(prev?'<button class="kanban-move-btn" data-dir="prev">←</button>':'')
+        +(next?'<button class="kanban-move-btn" data-dir="next">→</button>':'')
+        +'<button class="kanban-card-del">×</button>';
+      card.querySelector('.kanban-card-del').addEventListener('click',function(){kbData[col]=kbData[col].filter(function(x){return x.id!==item.id;});saveJSON('ps_kanban',kbData);kbRender();});
+      if(prev){card.querySelector('[data-dir="prev"]').addEventListener('click',function(){kbData[col]=kbData[col].filter(function(x){return x.id!==item.id;});kbData[prev].push(item);saveJSON('ps_kanban',kbData);kbRender();});}
+      if(next){card.querySelector('[data-dir="next"]').addEventListener('click',function(){kbData[col]=kbData[col].filter(function(x){return x.id!==item.id;});kbData[next].push(item);saveJSON('ps_kanban',kbData);kbRender();});}
+      list.appendChild(card);
+    });
+    if(!kbData[col].length)list.innerHTML='<div style="font-size:12px;color:var(--text3);text-align:center;padding:12px 0;">Empty</div>';
+  });
+}
+document.querySelectorAll('[data-kadd]').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    var col=btn.getAttribute('data-kadd');
+    var inp=document.getElementById('kanban-'+col+'-in');
+    var v=inp.value.trim();if(!v)return;
+    kbData[col].push({id:Date.now(),text:v});inp.value='';
+    saveJSON('ps_kanban',kbData);kbRender();
+  });
+});
+['todo','prog','done'].forEach(function(col){
+  document.getElementById('kanban-'+col+'-in').addEventListener('keydown',function(e){if(e.key==='Enter'){document.querySelector('[data-kadd="'+col+'"]').click();}});
+});
+
+/* ═══════════════════════════════════════════════════════
+   SAVINGS GOALS
+═══════════════════════════════════════════════════════ */
+var savGoals=loadJSON('ps_savings',[]);
+function savRender(){
+  var list=document.getElementById('sav-list');list.innerHTML='';
+  if(!savGoals.length){list.innerHTML='<div class="empty-state"><span class="empty-icon">🎯</span>No savings goals yet.</div>';return;}
+  savGoals.forEach(function(g){
+    var pct=Math.min(100,Math.round((g.saved||0)/g.target*100));
+    var card=document.createElement('div');card.className='savings-card';
+    card.innerHTML='<div class="savings-card-top"><div><div class="savings-card-name">'+esc(g.name)+'</div><div class="savings-card-amt">₹'+(g.saved||0).toFixed(0)+' / ₹'+g.target.toFixed(0)+' ('+pct+'%)</div></div><button class="savings-del">×</button></div>'
+      +'<div class="progress-track" style="margin:6px 0;"><div class="progress-fill" style="width:'+pct+'%;background:var(--accent2);"></div></div>'
+      +'<div class="savings-add-row"><input type="number" placeholder="Add amount" min="0" class="sav-add-in"/><button class="btn-primary sav-add-btn" style="height:30px;font-size:12px;">+ Add</button></div>';
+    card.querySelector('.savings-del').addEventListener('click',function(){if(!confirm('Delete this goal?'))return;savGoals=savGoals.filter(function(x){return x.id!==g.id;});saveJSON('ps_savings',savGoals);savRender();});
+    card.querySelector('.sav-add-btn').addEventListener('click',function(){var v=parseFloat(card.querySelector('.sav-add-in').value);if(!isNaN(v)&&v>0){g.saved=(g.saved||0)+v;card.querySelector('.sav-add-in').value='';saveJSON('ps_savings',savGoals);savRender();}});
+    list.appendChild(card);
+  });
+}
+document.getElementById('sav-add-btn').addEventListener('click',function(){
+  var name=document.getElementById('sav-name').value.trim();
+  var target=parseFloat(document.getElementById('sav-target').value);
+  if(!name||isNaN(target)||target<=0)return;
+  savGoals.push({id:Date.now(),name:name,target:target,saved:0});
+  document.getElementById('sav-name').value='';document.getElementById('sav-target').value='';
+  saveJSON('ps_savings',savGoals);savRender();
+});
+
+/* ═══════════════════════════════════════════════════════
+   SUBSCRIPTION TRACKER
+═══════════════════════════════════════════════════════ */
+var subData=loadJSON('ps_subscriptions',[]);
+function subRender(){
+  var monthly=subData.reduce(function(a,s){return a+(s.freq==='monthly'?s.amount:s.amount/12);},0);
+  var annual=subData.reduce(function(a,s){return a+(s.freq==='annual'?s.amount:s.amount*12);},0);
+  document.getElementById('sub-monthly-total').textContent='₹'+monthly.toFixed(0);
+  document.getElementById('sub-annual-total').textContent='₹'+annual.toFixed(0);
+  document.getElementById('sub-count').textContent=subData.length;
+  var list=document.getElementById('sub-list');list.innerHTML='';
+  if(!subData.length){list.innerHTML='<div class="empty-state"><span class="empty-icon">📱</span>No subscriptions yet.</div>';return;}
+  subData.forEach(function(s){
+    var item=document.createElement('div');item.className='sub-item';
+    item.innerHTML='<div class="sub-icon">'+(s.icon||'📱')+'</div><div class="sub-body"><div class="sub-name">'+esc(s.name)+'</div><div class="sub-meta">'+s.freq+'</div></div><div class="sub-amount">₹'+s.amount.toFixed(0)+'</div><button class="sub-del">×</button>';
+    item.querySelector('.sub-del').addEventListener('click',function(){if(!confirm('Remove subscription?'))return;subData=subData.filter(function(x){return x.id!==s.id;});saveJSON('ps_subscriptions',subData);subRender();});
+    list.appendChild(item);
+  });
+}
+document.getElementById('sub-add-btn').addEventListener('click',function(){
+  var name=document.getElementById('sub-name').value.trim();
+  var amount=parseFloat(document.getElementById('sub-amount').value);
+  if(!name||isNaN(amount)||amount<=0)return;
+  subData.push({id:Date.now(),name:name,amount:amount,freq:document.getElementById('sub-freq').value,icon:document.getElementById('sub-icon').value||'📱'});
+  document.getElementById('sub-name').value='';document.getElementById('sub-amount').value='';document.getElementById('sub-icon').value='';
+  saveJSON('ps_subscriptions',subData);subRender();
+});
+
+/* ═══════════════════════════════════════════════════════
+   WORKOUT LOG
+═══════════════════════════════════════════════════════ */
+var woData=loadJSON('ps_workout',[]);
+function woRender(){
+  var today=dateKey(new Date());
+  var thisWeekStart=new Date();thisWeekStart.setDate(thisWeekStart.getDate()-thisWeekStart.getDay());
+  var thisWeek=woData.filter(function(w){return new Date(w.date)>=thisWeekStart;}).length;
+  var streak=0;
+  for(var i=0;i<60;i++){var d=new Date();d.setDate(d.getDate()-i);if(woData.some(function(w){return w.date===dateKey(d);}))streak++;else break;}
+  document.getElementById('wo-streak').textContent=streak;
+  document.getElementById('wo-total').textContent=woData.length;
+  document.getElementById('wo-this-week').textContent=thisWeek;
+  var list=document.getElementById('wo-list');list.innerHTML='';
+  if(!woData.length){list.innerHTML='<div class="empty-state"><span class="empty-icon">🏋️</span>No workouts yet.</div>';return;}
+  woData.slice().reverse().slice(0,15).forEach(function(w){
+    var item=document.createElement('div');item.className='workout-item';
+    item.innerHTML='<div class="workout-emoji">'+w.type.split(' ')[0]+'</div><div class="workout-body"><div class="workout-title">'+esc(w.type.replace(/^[^ ]+ /,''))+'</div><div class="workout-meta">'+w.duration+' min · '+w.intensity+(w.note?' · '+esc(w.note):'')+'</div></div><div style="font-size:11px;color:var(--text3);">'+w.date+'</div><button class="workout-del">×</button>';
+    item.querySelector('.workout-del').addEventListener('click',function(){woData=woData.filter(function(x){return x.id!==w.id;});saveJSON('ps_workout',woData);woRender();});
+    list.appendChild(item);
+  });
+}
+document.getElementById('wo-add-btn').addEventListener('click',function(){
+  var dur=parseInt(document.getElementById('wo-duration').value);
+  if(!dur||dur<=0)return;
+  woData.push({id:Date.now(),type:document.getElementById('wo-type').value,duration:dur,intensity:document.getElementById('wo-intensity').value,note:document.getElementById('wo-note').value.trim(),date:dateKey(new Date())});
+  document.getElementById('wo-duration').value='';document.getElementById('wo-note').value='';
+  saveJSON('ps_workout',woData);woRender();awardXP(15,'workout');
+});
+
+/* ═══════════════════════════════════════════════════════
+   CAFFEINE TRACKER
+═══════════════════════════════════════════════════════ */
+var caffData=loadJSON('ps_caffeine',{date:'',mg:0,log:[]});
+function caffRender(){
+  var today=dateKey(new Date());
+  if(caffData.date!==today){caffData={date:today,mg:0,log:[]};saveJSON('ps_caffeine',caffData);}
+  document.getElementById('caff-total').textContent=caffData.mg+' mg';
+  var pct=Math.min(100,Math.round(caffData.mg/400*100));
+  document.getElementById('caff-bar').style.width=pct+'%';
+  document.getElementById('caff-bar').style.background=pct>100?'#C0392B':pct>75?'#E08050':'#8B6914';
+  var log=document.getElementById('caff-log');log.innerHTML='';
+  if(!caffData.log.length){log.innerHTML='<div style="font-size:12px;color:var(--text3);">Nothing logged yet today.</div>';return;}
+  caffData.log.forEach(function(e){
+    var d=document.createElement('div');d.className='caff-log-item';
+    d.innerHTML='<span>'+e.name+'</span><span style="color:var(--text3);">'+e.mg+'mg</span><span style="font-size:11px;color:var(--text3);">'+e.time+'</span>';
+    log.appendChild(d);
+  });
+}
+document.querySelectorAll('.caff-btn').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    var mg=parseInt(btn.getAttribute('data-mg'));
+    caffData.mg+=mg;
+    caffData.log.push({name:btn.getAttribute('data-caff'),mg:mg,time:new Date().toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit'})});
+    saveJSON('ps_caffeine',caffData);caffRender();
+  });
+});
+document.getElementById('caff-reset-btn').addEventListener('click',function(){caffData={date:dateKey(new Date()),mg:0,log:[]};saveJSON('ps_caffeine',caffData);caffRender();});
+
+/* ═══════════════════════════════════════════════════════
+   BODY METRICS
+═══════════════════════════════════════════════════════ */
+var bmData=loadJSON('ps_bodymetrics',{});
+function bmRender(){
+  var charts=document.getElementById('bm-charts');charts.innerHTML='';
+  var metrics=Object.keys(bmData);
+  if(!metrics.length){charts.innerHTML='<div class="empty-state"><span class="empty-icon">📏</span>No metrics yet. Add your first entry above.</div>';return;}
+  metrics.forEach(function(m){
+    var entries=bmData[m].slice(-14);
+    var maxV=Math.max.apply(null,entries.map(function(e){return e.v;}));
+    var section=document.createElement('div');section.className='card';section.style.marginBottom='10px';
+    section.innerHTML='<div class="card-title">'+esc(m)+(bmData[m][0]?' ('+esc(bmData[m][0].unit)+')':'')+'</div>'
+      +'<div class="metric-chart">'+entries.map(function(e){var h=maxV>0?Math.round(e.v/maxV*70):4;return '<div class="metric-bar" style="height:'+h+'px;" title="'+e.v+'"></div>';}).join('')+'</div>'
+      +'<div>'+entries.slice(-5).reverse().map(function(e){return '<div class="metric-entry"><span>'+e.date+'</span><span style="font-weight:600;">'+e.v+' '+esc(e.unit||'')+'</span><button class="metric-del" data-metric="'+esc(m)+'" data-id="'+e.id+'">×</button></div>';}).join('')+'</div>';
+    section.querySelectorAll('.metric-del').forEach(function(b){b.addEventListener('click',function(){var mn=b.getAttribute('data-metric');var id=parseInt(b.getAttribute('data-id'));bmData[mn]=bmData[mn].filter(function(x){return x.id!==id;});if(!bmData[mn].length)delete bmData[mn];saveJSON('ps_bodymetrics',bmData);bmRender();});});
+    charts.appendChild(section);
+  });
+}
+document.getElementById('bm-add-btn').addEventListener('click',function(){
+  var metric=document.getElementById('bm-metric').value.trim();
+  var value=parseFloat(document.getElementById('bm-value').value);
+  var unit=document.getElementById('bm-unit').value.trim();
+  if(!metric||isNaN(value))return;
+  if(!bmData[metric])bmData[metric]=[];
+  bmData[metric].push({id:Date.now(),v:value,unit:unit,date:dateKey(new Date())});
+  document.getElementById('bm-value').value='';
+  saveJSON('ps_bodymetrics',bmData);bmRender();
+});
+
+/* ═══════════════════════════════════════════════════════
+   MEDICATION REMINDER
+═══════════════════════════════════════════════════════ */
+var medData=loadJSON('ps_medication',{meds:[],ticks:{}});
+function medRender(){
+  var today=dateKey(new Date());
+  var list=document.getElementById('med-list');list.innerHTML='';
+  if(!medData.meds.length){list.innerHTML='<div class="empty-state"><span class="empty-icon">💊</span>No medications added yet.</div>';return;}
+  medData.meds.forEach(function(m){
+    var key=today+'_'+m.id;var done=medData.ticks[key];
+    var item=document.createElement('div');item.className='med-item';
+    item.innerHTML='<div class="med-chk'+(done?' done':'')+'">'+( done?'✓':'')+'</div><div class="med-body"><div class="med-name">'+esc(m.name)+(m.dose?' — '+esc(m.dose):'')+'</div><div class="med-time">'+fmtTime(m.time)+'</div></div><button class="med-del">×</button>';
+    item.querySelector('.med-chk').addEventListener('click',function(){medData.ticks[key]=!medData.ticks[key];saveJSON('ps_medication',medData);medRender();if(medData.ticks[key])awardXP(5,'med');});
+    item.querySelector('.med-del').addEventListener('click',function(){if(!confirm('Remove medication?'))return;medData.meds=medData.meds.filter(function(x){return x.id!==m.id;});saveJSON('ps_medication',medData);medRender();});
+    list.appendChild(item);
+  });
+}
+document.getElementById('med-add-btn').addEventListener('click',function(){
+  var name=document.getElementById('med-name').value.trim();
+  if(!name)return;
+  medData.meds.push({id:Date.now(),name:name,time:document.getElementById('med-time').value,dose:document.getElementById('med-dose').value.trim()});
+  document.getElementById('med-name').value='';document.getElementById('med-time').value='';document.getElementById('med-dose').value='';
+  saveJSON('ps_medication',medData);medRender();
+});
+
+/* ═══════════════════════════════════════════════════════
+   MENSTRUAL CYCLE TRACKER
+═══════════════════════════════════════════════════════ */
+var cycData=loadJSON('ps_cycle',{periods:[],cycleLen:28});
+var cycViewYear=new Date().getFullYear();var cycViewMonth=new Date().getMonth();
+function cycRender(){
+  var today=new Date();today.setHours(0,0,0,0);
+  var allDays=cycData.periods.reduce(function(a,p){
+    if(p.start&&p.end){var s=new Date(p.start),e=new Date(p.end);while(s<=e){a[dateKey(s)]=true;s.setDate(s.getDate()+1);}}return a;
+  },{});
+  var lastStart=cycData.periods.length?new Date(cycData.periods[cycData.periods.length-1].start):null;
+  var nextPred=lastStart?new Date(lastStart.getTime()+cycData.cycleLen*86400000):null;
+  var predDays={};
+  if(nextPred){for(var pi=0;pi<5;pi++){var pd=new Date(nextPred.getTime()+pi*86400000);predDays[dateKey(pd)]=true;}}
+  var avgLen=cycData.cycleLen;
+  document.getElementById('cyc-avg-len').textContent=avgLen+' days';
+  document.getElementById('cyc-last').textContent=lastStart?lastStart.toLocaleDateString('en-IN',{day:'numeric',month:'short'}):'-';
+  document.getElementById('cyc-next').textContent=nextPred?nextPred.toLocaleDateString('en-IN',{day:'numeric',month:'short'}):'-';
+  var monthNames=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  document.getElementById('cyc-month-label').textContent=monthNames[cycViewMonth]+' '+cycViewYear;
+  var cal=document.getElementById('cyc-cal');cal.innerHTML='';
+  var first=new Date(cycViewYear,cycViewMonth,1);var startDay=first.getDay();
+  for(var bi=0;bi<startDay;bi++){var b=document.createElement('div');b.className='cycle-day blank';cal.appendChild(b);}
+  var daysInMonth=new Date(cycViewYear,cycViewMonth+1,0).getDate();
+  for(var di=1;di<=daysInMonth;di++){
+    var d=new Date(cycViewYear,cycViewMonth,di);d.setHours(0,0,0,0);
+    var dk=dateKey(d);
+    var div=document.createElement('div');div.className='cycle-day';div.textContent=di;
+    if(allDays[dk])div.classList.add('period');
+    else if(predDays[dk])div.classList.add('predicted');
+    if(d.getTime()===today.getTime())div.classList.add('today');
+    div.addEventListener('click',function(dk_,d_){return function(){
+      if(allDays[dk_]){cycData.periods.forEach(function(p){if(p.start<=dk_&&p.end>=dk_){p.end=dateKey(new Date(new Date(dk_).getTime()-86400000));}});if(cycData.periods[cycData.periods.length-1].end<cycData.periods[cycData.periods.length-1].start)cycData.periods.pop();}
+      else{var last=cycData.periods[cycData.periods.length-1];if(last&&!last.end){last.end=dk_;}else{cycData.periods.push({start:dk_,end:dk_});}}
+      saveJSON('ps_cycle',cycData);cycRender();
+    };}(dk,d));
+    cal.appendChild(div);
+  }
+}
+document.getElementById('cyc-prev').addEventListener('click',function(){cycViewMonth--;if(cycViewMonth<0){cycViewMonth=11;cycViewYear--;}cycRender();});
+document.getElementById('cyc-next-btn').addEventListener('click',function(){cycViewMonth++;if(cycViewMonth>11){cycViewMonth=0;cycViewYear++;}cycRender();});
+
+/* ═══════════════════════════════════════════════════════
+   WORD OF THE DAY
+═══════════════════════════════════════════════════════ */
+var WOD_LIST=[
+  {w:'Ephemeral',pos:'adj.',def:'Lasting for a very short time; transitory.',ex:'The ephemeral beauty of cherry blossoms makes them all the more precious.'},
+  {w:'Serendipity',pos:'n.',def:'The occurrence of fortunate events by accident.',ex:'Meeting my best friend on that train was pure serendipity.'},
+  {w:'Perseverance',pos:'n.',def:'Continued effort despite difficulty or delay.',ex:'Her perseverance through hardship inspired the entire team.'},
+  {w:'Luminous',pos:'adj.',def:'Bright or shining, especially in the dark.',ex:'The luminous stars above the mountain felt impossibly close.'},
+  {w:'Solitude',pos:'n.',def:'The state of being alone, especially peacefully.',ex:'He found solitude in early morning walks before the city woke.'},
+  {w:'Resilience',pos:'n.',def:'The capacity to recover quickly from difficulty.',ex:'Resilience is built through navigating the storms of life.'},
+  {w:'Equanimity',pos:'n.',def:'Mental calmness in difficult situations.',ex:'She faced the setback with remarkable equanimity.'},
+  {w:'Mellifluous',pos:'adj.',def:'Sweet or musical; pleasant to hear.',ex:'Her mellifluous voice filled the hall with warmth.'},
+  {w:'Tenacious',pos:'adj.',def:'Holding firmly to something; very determined.',ex:'A tenacious spirit is the secret behind most great achievements.'},
+  {w:'Wanderlust',pos:'n.',def:'A strong desire to travel and explore the world.',ex:'Wanderlust pulled her from city to city, continent to continent.'},
+  {w:'Whimsical',pos:'adj.',def:'Playfully quaint or fanciful, especially in art.',ex:'The garden had a whimsical charm with hidden stone paths.'},
+  {w:'Eloquent',pos:'adj.',def:'Fluent and persuasive in speaking or writing.',ex:'Her eloquent speech moved everyone in the audience.'},
+  {w:'Introspect',pos:'v.',def:'To examine one\'s own thoughts and feelings.',ex:'Regular journaling helps you introspect and grow.'},
+  {w:'Cadence',pos:'n.',def:'A rhythmic sequence or flow of sounds or words.',ex:'The cadence of rainfall against the window was calming.'},
+  {w:'Zenith',pos:'n.',def:'The time at which something is most powerful or successful.',ex:'The artist reached the zenith of her career in her forties.'},
+  {w:'Brevity',pos:'n.',def:'Concise and exact use of words; shortness.',ex:'Brevity is the soul of wit, as Shakespeare wisely noted.'},
+  {w:'Nostalgia',pos:'n.',def:'A sentimental longing for the past.',ex:'The old song filled him with a sweet nostalgia.'},
+  {w:'Sagacious',pos:'adj.',def:'Having or showing good judgment; wise.',ex:'The sagacious mentor guided her student through every challenge.'},
+  {w:'Anomaly',pos:'n.',def:'Something different from what is standard or expected.',ex:'The data anomaly hinted at something genuinely surprising.'},
+  {w:'Catalyst',pos:'n.',def:'A person or event that causes rapid change.',ex:'The new manager was a catalyst for the company\'s transformation.'},
+  {w:'Fervent',pos:'adj.',def:'Having or displaying a passionate intensity.',ex:'She was a fervent advocate for environmental justice.'},
+  {w:'Gratitude',pos:'n.',def:'The quality of being thankful; readiness to appreciate.',ex:'Daily gratitude shifts your attention to what already is good.'},
+  {w:'Harbinger',pos:'n.',def:'A person or thing signalling what is to come.',ex:'The first robin is a harbinger of spring.'},
+  {w:'Labyrinth',pos:'n.',def:'A complicated network of paths or passages.',ex:'The medieval city was a labyrinth of narrow cobbled lanes.'},
+  {w:'Paradigm',pos:'n.',def:'A typical example or a clear pattern or model.',ex:'The discovery was a paradigm shift for the entire field.'},
+  {w:'Quintessential',pos:'adj.',def:'Representing the most perfect example of something.',ex:'Paris is the quintessential romantic city.'},
+  {w:'Reverie',pos:'n.',def:'A state of being pleasantly lost in thought.',ex:'He drifted into a reverie watching the evening clouds.'},
+  {w:'Synchrony',pos:'n.',def:'Simultaneous action or operation.',ex:'The dancers moved in perfect synchrony.'},
+  {w:'Tranquil',pos:'adj.',def:'Free from disturbance; calm.',ex:'The lakeside at dawn was utterly tranquil.'},
+  {w:'Ubiquitous',pos:'adj.',def:'Present everywhere or seeming to be everywhere.',ex:'Smartphones have become ubiquitous in modern life.'},
+];
+var wodGlossary=loadJSON('ps_wod_glossary',[]);
+var wodIndex=Math.floor((Date.now()/86400000))%WOD_LIST.length;
+var wodCurrent=WOD_LIST[wodIndex];
+function wodRender(){
+  var card=document.getElementById('wod-card');
+  card.innerHTML='<div class="word-of-day-big">'+esc(wodCurrent.w)+'</div>'
+    +'<div class="word-pos">'+wodCurrent.pos+'</div>'
+    +'<div class="word-def">'+esc(wodCurrent.def)+'</div>'
+    +'<div class="word-example">"'+esc(wodCurrent.ex)+'"</div>';
+  var gl=document.getElementById('wod-glossary');gl.innerHTML='';
+  if(!wodGlossary.length){gl.innerHTML='<div style="font-size:12px;color:var(--text3);">Save words you want to remember.</div>';return;}
+  wodGlossary.slice().reverse().forEach(function(w){
+    var row=document.createElement('div');row.className='glossary-item';
+    row.innerHTML='<div class="glossary-word">'+esc(w.w)+'</div><div class="glossary-def">'+esc(w.def)+'</div><button class="glossary-del">×</button>';
+    row.querySelector('.glossary-del').addEventListener('click',function(){wodGlossary=wodGlossary.filter(function(x){return x.w!==w.w;});saveJSON('ps_wod_glossary',wodGlossary);wodRender();});
+    gl.appendChild(row);
+  });
+}
+document.getElementById('wod-save-btn').addEventListener('click',function(){
+  if(!wodGlossary.some(function(x){return x.w===wodCurrent.w;})){wodGlossary.push(wodCurrent);saveJSON('ps_wod_glossary',wodGlossary);wodRender();}
+});
+document.getElementById('wod-random-btn').addEventListener('click',function(){
+  wodCurrent=WOD_LIST[Math.floor(Math.random()*WOD_LIST.length)];wodRender();
+});
+
+/* ═══════════════════════════════════════════════════════
+   WORLD CLOCK
+═══════════════════════════════════════════════════════ */
+var wcZones=loadJSON('ps_worldclock',['Asia/Kolkata','America/New_York','Europe/London']);
+var wcTimer=null;
+function wcRender(){
+  var list=document.getElementById('wc-list');list.innerHTML='';
+  var tzNames={'America/New_York':'New York','America/Los_Angeles':'Los Angeles','America/Chicago':'Chicago','Europe/London':'London','Europe/Paris':'Paris','Europe/Berlin':'Berlin','Asia/Dubai':'Dubai','Asia/Kolkata':'India','Asia/Singapore':'Singapore','Asia/Tokyo':'Tokyo','Asia/Shanghai':'Shanghai','Australia/Sydney':'Sydney','Pacific/Auckland':'Auckland','America/Sao_Paulo':'São Paulo'};
+  var now=new Date();
+  wcZones.forEach(function(tz){
+    try{
+      var timeStr=now.toLocaleTimeString('en-US',{timeZone:tz,hour:'2-digit',minute:'2-digit',hour12:true});
+      var dateStr=now.toLocaleDateString('en-US',{timeZone:tz,weekday:'short',month:'short',day:'numeric'});
+      var card=document.createElement('div');card.className='tz-card';
+      card.innerHTML='<div class="tz-info"><div class="tz-name">'+(tzNames[tz]||tz)+'</div><div class="tz-sub">'+dateStr+'</div></div>'
+        +'<div class="tz-time">'+timeStr+'</div><button class="tz-del">×</button>';
+      card.querySelector('.tz-del').addEventListener('click',function(){wcZones=wcZones.filter(function(z){return z!==tz;});saveJSON('ps_worldclock',wcZones);wcRender();});
+      list.appendChild(card);
+    }catch(e){}
+  });
+  if(!wcZones.length)list.innerHTML='<div class="empty-state"><span class="empty-icon">🌍</span>Add a timezone above.</div>';
+}
+document.getElementById('wc-add-btn').addEventListener('click',function(){
+  var tz=document.getElementById('wc-tz-select').value;
+  if(!wcZones.includes(tz)){wcZones.push(tz);saveJSON('ps_worldclock',wcZones);wcRender();}
+});
+function wcTick(){document.getElementById('wc-list')&&document.getElementById('screen-worldclock').classList.contains('active')&&wcRender();}
+setInterval(wcTick,10000);
+
+/* ═══════════════════════════════════════════════════════
+   COLOR PALETTE TOOL
+═══════════════════════════════════════════════════════ */
+var cpSaved=loadJSON('ps_palette',[]);
+function hexToRgb(h){var r=parseInt(h.slice(1,3),16),g=parseInt(h.slice(3,5),16),b=parseInt(h.slice(5,7),16);return {r:r,g:g,b:b};}
+function rgbToHsl(r,g,b){r/=255;g/=255;b/=255;var max=Math.max(r,g,b),min=Math.min(r,g,b),h,s,l=(max+min)/2;if(max===min){h=s=0;}else{var d=max-min;s=l>0.5?d/(2-max-min):d/(max+min);switch(max){case r:h=((g-b)/d+(g<b?6:0))/6;break;case g:h=((b-r)/d+2)/6;break;default:h=((r-g)/d+4)/6;break;}}return {h:Math.round(h*360),s:Math.round(s*100),l:Math.round(l*100)};}
+function cpRender(){
+  var hex=document.getElementById('cp-picker').value;
+  document.getElementById('cp-preview').style.background=hex;
+  var rgb=hexToRgb(hex);var hsl=rgbToHsl(rgb.r,rgb.g,rgb.b);
+  document.getElementById('cp-info').innerHTML='<div class="color-badge" title="Click to copy" data-copy="'+hex+'">HEX '+hex+'</div><div class="color-badge" title="Click to copy" data-copy="rgb('+rgb.r+','+rgb.g+','+rgb.b+')">RGB '+rgb.r+','+rgb.g+','+rgb.b+'</div><div class="color-badge" title="Click to copy" data-copy="hsl('+hsl.h+','+hsl.s+'%,'+hsl.l+'%)">HSL '+hsl.h+'° '+hsl.s+'% '+hsl.l+'%</div>';
+  document.querySelectorAll('.color-badge').forEach(function(b){b.addEventListener('click',function(){navigator.clipboard&&navigator.clipboard.writeText(b.getAttribute('data-copy'));b.textContent='Copied!';setTimeout(function(){cpRender();},900);});});
+  var pal=document.getElementById('cp-palette');pal.innerHTML='';
+  cpSaved.forEach(function(c){
+    var sw=document.createElement('div');sw.className='palette-swatch';sw.style.background=c;sw.title=c;
+    sw.addEventListener('click',function(){document.getElementById('cp-picker').value=c;cpRender();});
+    pal.appendChild(sw);
+  });
+  if(!cpSaved.length)pal.innerHTML='<div style="font-size:12px;color:var(--text3);">Save colours to build your palette.</div>';
+}
+document.getElementById('cp-picker').addEventListener('input',cpRender);
+document.getElementById('cp-save-btn').addEventListener('click',function(){
+  var hex=document.getElementById('cp-picker').value;
+  if(!cpSaved.includes(hex)){cpSaved.push(hex);saveJSON('ps_palette',cpSaved);cpRender();}
+});
+
+/* ═══════════════════════════════════════════════════════
+   TYPING SPEED TEST
+═══════════════════════════════════════════════════════ */
+var TYP_TEXTS=[
+  'The quick brown fox jumps over the lazy dog near the river bank.',
+  'Success is not final, failure is not fatal; it is the courage to continue that counts.',
+  'In the middle of every difficulty lies opportunity waiting to be discovered by a curious mind.',
+  'The best way to predict the future is to create it with consistent and deliberate action every day.',
+  'Simplicity is the ultimate sophistication in both design and in the art of daily living.',
+];
+var typState={running:false,timer:null,timeLeft:60,startTime:null,errors:0,typed:0};
+var typBest=loadJSON('ps_typing_best',0);
+var typText='';var typIdx=0;
+function typInit(){
+  clearInterval(typState.timer);typState={running:false,timer:null,timeLeft:60,startTime:null,errors:0,typed:0};
+  typText=TYP_TEXTS[Math.floor(Math.random()*TYP_TEXTS.length)];typIdx=0;
+  document.getElementById('typ-timer').textContent='60';
+  document.getElementById('typ-wpm').textContent='—';
+  document.getElementById('typ-acc').textContent='—';
+  document.getElementById('typ-best').textContent=typBest||'—';
+  document.getElementById('typ-input').value='';
+  document.getElementById('typ-input').disabled=false;
+  typRender();
+}
+function typRender(){
+  var html='';
+  for(var i=0;i<typText.length;i++){
+    if(i<typIdx)html+='<span class="t-correct">'+typText[i]+'</span>';
+    else if(i===typIdx)html+='<span class="t-cursor"> </span><span class="t-pending">'+typText[i]+'</span>';
+    else html+='<span class="t-pending">'+typText[i]+'</span>';
+  }
+  document.getElementById('typ-display').innerHTML=html;
+}
+document.getElementById('typ-input').addEventListener('input',function(e){
+  if(!typState.running&&this.value.length>0){
+    typState.running=true;
+    typState.timer=setInterval(function(){
+      typState.timeLeft--;
+      document.getElementById('typ-timer').textContent=typState.timeLeft;
+      if(typState.timeLeft<=0){clearInterval(typState.timer);typEnd();}
+    },1000);
+  }
+  var ch=this.value;this.value='';
+  if(ch===typText[typIdx]){typIdx++;typState.typed++;}else{typState.errors++;}
+  if(typIdx>=typText.length){clearInterval(typState.timer);typEnd();}
+  typRender();
+});
+function typEnd(){
+  typState.running=false;
+  document.getElementById('typ-input').disabled=true;
+  var elapsed=(60-typState.timeLeft)||1;
+  var wpm=Math.round((typIdx/5)/(elapsed/60));
+  var acc=typState.typed>0?Math.round(typState.typed/(typState.typed+typState.errors)*100):0;
+  document.getElementById('typ-wpm').textContent=wpm;
+  document.getElementById('typ-acc').textContent=acc+'%';
+  if(wpm>typBest){typBest=wpm;saveJSON('ps_typing_best',typBest);document.getElementById('typ-best').textContent=typBest;awardXP(20,'typing');}
+}
+document.getElementById('typ-restart').addEventListener('click',typInit);
+
+/* ═══════════════════════════════════════════════════════
+   WORDLE
+═══════════════════════════════════════════════════════ */
+var WRD_WORDS=['crane','brave','light','stone','tiger','chair','flame','globe','piano','storm','night','world','pearl','sword','grace','flair','blaze','drift','cloak','prism','tempo','vivid','quest','spark','mirth','lyric','focal','blend','crisp','swift'];
+var wrdAnswer='';var wrdGuesses=[];var wrdCurrentGuess='';var wrdOver=false;var wrdMaxGuess=6;
+function wrdInit(){
+  wrdAnswer=WRD_WORDS[Math.floor((Date.now()/86400000))%WRD_WORDS.length];
+  wrdGuesses=[];wrdCurrentGuess='';wrdOver=false;
+  document.getElementById('wrd-new-btn').style.display='none';
+  document.getElementById('wrd-status').textContent='Guess the 5-letter word!';
+  wrdRenderGrid();wrdRenderKeyboard();
+}
+function wrdRenderGrid(){
+  var grid=document.getElementById('wrd-grid');grid.innerHTML='';
+  for(var r=0;r<wrdMaxGuess;r++){
+    for(var c=0;c<5;c++){
+      var cell=document.createElement('div');cell.className='wordle-cell';
+      if(r<wrdGuesses.length){
+        var guess=wrdGuesses[r];cell.textContent=guess.letters[c];
+        if(guess.result[c]==='correct')cell.classList.add('correct');
+        else if(guess.result[c]==='present')cell.classList.add('present');
+        else cell.classList.add('absent');
+      }else if(r===wrdGuesses.length&&!wrdOver){
+        if(c<wrdCurrentGuess.length){cell.textContent=wrdCurrentGuess[c];cell.classList.add('active');}
+      }
+      grid.appendChild(cell);
+    }
+  }
+}
+function wrdRenderKeyboard(){
+  var kb=document.getElementById('wrd-keyboard');kb.innerHTML='';
+  var rows=[['q','w','e','r','t','y','u','i','o','p'],['a','s','d','f','g','h','j','k','l'],['Enter','z','x','c','v','b','n','m','⌫']];
+  var used={};
+  wrdGuesses.forEach(function(g){g.letters.forEach(function(l,i){var s=g.result[i];if(!used[l]||s==='correct'||(s==='present'&&used[l]!=='correct'))used[l]=s;});});
+  rows.forEach(function(row){
+    var div=document.createElement('div');div.className='wordle-kb-row';
+    row.forEach(function(k){
+      var btn=document.createElement('button');btn.className='wordle-key';btn.textContent=k;
+      if(k==='Enter'||k==='⌫')btn.classList.add('wide');
+      if(used[k])btn.classList.add(used[k]);
+      btn.addEventListener('click',function(){wrdKey(k);});
+      div.appendChild(btn);
+    });
+    kb.appendChild(div);
+  });
+}
+function wrdKey(k){
+  if(wrdOver)return;
+  if(k==='⌫'){wrdCurrentGuess=wrdCurrentGuess.slice(0,-1);}
+  else if(k==='Enter'){
+    if(wrdCurrentGuess.length!==5){document.getElementById('wrd-status').textContent='Need 5 letters!';return;}
+    var result=wrdCurrentGuess.split('').map(function(c,i){
+      if(c===wrdAnswer[i])return 'correct';
+      if(wrdAnswer.includes(c))return 'present';
+      return 'absent';
+    });
+    wrdGuesses.push({letters:wrdCurrentGuess.split(''),result:result});
+    wrdCurrentGuess='';
+    if(result.every(function(r){return r==='correct';})){wrdOver=true;document.getElementById('wrd-status').textContent='🎉 Brilliant!';launchConfetti();document.getElementById('wrd-new-btn').style.display='';awardXP(30,'wordle');}
+    else if(wrdGuesses.length>=wrdMaxGuess){wrdOver=true;document.getElementById('wrd-status').textContent='The word was: '+wrdAnswer.toUpperCase();document.getElementById('wrd-new-btn').style.display='';}
+    else{document.getElementById('wrd-status').textContent='Guess '+(wrdGuesses.length+1)+' of '+wrdMaxGuess;}
+  }else if(wrdCurrentGuess.length<5&&/[a-z]/.test(k)){wrdCurrentGuess+=k;}
+  wrdRenderGrid();wrdRenderKeyboard();
+}
+document.addEventListener('keydown',function(e){
+  if(!document.getElementById('screen-wordle').classList.contains('active'))return;
+  if(e.key==='Backspace')wrdKey('⌫');
+  else if(e.key==='Enter')wrdKey('Enter');
+  else if(/^[a-zA-Z]$/.test(e.key))wrdKey(e.key.toLowerCase());
+});
+document.getElementById('wrd-new-btn').addEventListener('click',function(){wrdAnswer=WRD_WORDS[Math.floor(Math.random()*WRD_WORDS.length)];wrdGuesses=[];wrdCurrentGuess='';wrdOver=false;this.style.display='none';document.getElementById('wrd-status').textContent='Guess the 5-letter word!';wrdRenderGrid();wrdRenderKeyboard();});
+
+/* ═══════════════════════════════════════════════════════
+   MEMORY FLIP GAME
+═══════════════════════════════════════════════════════ */
+var MEM_EMOJIS=['🍎','🍊','🍋','🍇','🌸','⭐','🎵','🎨'];
+var memState={cards:[],flipped:[],matched:0,moves:0,timer:null,seconds:0,running:false};
+var memBest=loadJSON('ps_mem_best',0);
+function memInit(){
+  clearInterval(memState.timer);
+  var pairs=MEM_EMOJIS.concat(MEM_EMOJIS).map(function(e,i){return {id:i,emoji:e,flipped:false,matched:false};});
+  for(var i=pairs.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=pairs[i];pairs[i]=pairs[j];pairs[j]=t;}
+  memState={cards:pairs,flipped:[],matched:0,moves:0,timer:null,seconds:0,running:false};
+  document.getElementById('mem-moves').textContent='0';
+  document.getElementById('mem-pairs').textContent='0';
+  document.getElementById('mem-best').textContent=memBest?memBest+'s':'—';
+  memRenderGrid();
+}
+function memRenderGrid(){
+  var grid=document.getElementById('mem-grid');grid.innerHTML='';
+  memState.cards.forEach(function(card,i){
+    var div=document.createElement('div');div.className='mem-card'+(card.flipped?' flipped':'')+(card.matched?' matched':'');
+    div.innerHTML='<div class="mem-inner"><div class="mem-face mem-front">?</div><div class="mem-face mem-back">'+card.emoji+'</div></div>';
+    if(!card.matched){div.addEventListener('click',function(){memFlip(i);});}
+    grid.appendChild(div);
+  });
+}
+function memFlip(i){
+  var card=memState.cards[i];
+  if(card.flipped||card.matched||memState.flipped.length>=2)return;
+  if(!memState.running){memState.running=true;memState.timer=setInterval(function(){memState.seconds++;},1000);}
+  card.flipped=true;memState.flipped.push(i);
+  memRenderGrid();
+  if(memState.flipped.length===2){
+    memState.moves++;document.getElementById('mem-moves').textContent=memState.moves;
+    var a=memState.cards[memState.flipped[0]],b=memState.cards[memState.flipped[1]];
+    if(a.emoji===b.emoji){a.matched=b.matched=true;a.flipped=b.flipped=false;memState.flipped=[];memState.matched++;document.getElementById('mem-pairs').textContent=memState.matched;
+      if(memState.matched===MEM_EMOJIS.length){clearInterval(memState.timer);var t=memState.seconds;if(!memBest||t<memBest){memBest=t;saveJSON('ps_mem_best',memBest);}document.getElementById('mem-best').textContent=memBest+'s';launchConfetti();awardXP(25,'memory');}
+    }else{setTimeout(function(){a.flipped=b.flipped=false;memState.flipped=[];memRenderGrid();},900);}
+  }
+}
+document.getElementById('mem-new-btn').addEventListener('click',memInit);
+
+/* ═══════════════════════════════════════════════════════
+   XP + LEVEL SYSTEM + ACHIEVEMENTS
+═══════════════════════════════════════════════════════ */
+var xpData=loadJSON('ps_xp',{xp:0,level:1});
+var badgesData=loadJSON('ps_badges',{});
+var XP_PER_LEVEL=100;
+var BADGES=[
+  {id:'task10',icon:'✅',name:'Task Master',desc:'Complete 10 tasks',check:function(){return loadJSON('ps_pizza_tasks',[]).filter(function(t){return t.done;}).length>=10;}},
+  {id:'habit7',icon:'🔥',name:'On Fire',desc:'7-day habit streak',check:function(){var hd=loadJSON('ps_habits',{habits:[],ticks:{}});var streak=0;var today=new Date();for(var i=0;i<30;i++){var d=new Date(today);d.setDate(d.getDate()-i);var dk=dateKey(d);var done=hd.habits.some(function(h){return (hd.ticks[dk+'_'+h.id]||0)>=(h.goal||1);});if(done)streak++;else break;}return streak>=7;}},
+  {id:'journal5',icon:'📓',name:'Storyteller',desc:'Write 5 journal entries',check:function(){return Object.keys(loadJSON('ps_journal',{})).length>=5;}},
+  {id:'pom5',icon:'🍅',name:'Focus Warrior',desc:'Complete 5 Pomodoros',check:function(){return (loadJSON('ps_pom_stats',{total:0}).total||0)>=5;}},
+  {id:'workout3',icon:'💪',name:'Moving Forward',desc:'Log 3 workouts',check:function(){return loadJSON('ps_workout',[]).length>=3;}},
+  {id:'savings1',icon:'🎯',name:'Saver',desc:'Create a savings goal',check:function(){return loadJSON('ps_savings',[]).length>=1;}},
+  {id:'wordle1',icon:'🟩',name:'Word Wizard',desc:'Solve your first Wordle',check:function(){return !!badgesData['wordle1'];}},
+  {id:'memory1',icon:'🃏',name:'Sharp Mind',desc:'Win a Memory game',check:function(){return !!badgesData['memory1'];}},
+  {id:'xp500',icon:'⭐',name:'Rising Star',desc:'Earn 500 XP',check:function(){return xpData.xp>=500;}},
+  {id:'xp1000',icon:'🌟',name:'Legend',desc:'Earn 1000 XP',check:function(){return xpData.xp>=1000;}},
+];
+function awardXP(amount,reason){
+  xpData.xp+=amount;
+  var newLevel=Math.floor(xpData.xp/XP_PER_LEVEL)+1;
+  if(newLevel>xpData.level){xpData.level=newLevel;showBadgeNotif('Level Up! Now Level '+newLevel+' 🎉');}
+  saveJSON('ps_xp',xpData);
+  renderXPBar();
+  checkBadges(reason);
+}
+function renderXPBar(){
+  var bar=document.getElementById('xp-bar');if(!bar)return;
+  var inLevel=xpData.xp%XP_PER_LEVEL;var pct=Math.round(inLevel/XP_PER_LEVEL*100);
+  bar.style.width=pct+'%';
+  var lbl=document.getElementById('xp-label');if(lbl)lbl.textContent='Level '+xpData.level+' · '+xpData.xp+' XP';
+  var next=document.getElementById('xp-next');if(next)next.textContent=(XP_PER_LEVEL-inLevel)+' XP to next';
+}
+function checkBadges(hint){
+  BADGES.forEach(function(b){
+    if(!badgesData[b.id]&&b.check()){badgesData[b.id]=Date.now();saveJSON('ps_badges',badgesData);showBadgeNotif(b.icon+' Badge unlocked: '+b.name);}
+  });
+}
+function showBadgeNotif(msg){
+  var n=document.createElement('div');n.className='badge-new-notif';n.textContent=msg;
+  document.body.appendChild(n);setTimeout(function(){n.remove();},3000);
+}
+renderXPBar();
+
+/* ═══════════════════════════════════════════════════════
+   MY DATA — ENHANCEMENTS (accent, export journal, app stats)
+═══════════════════════════════════════════════════════ */
+// Accent color picker
+(function(){
+  var accentKey='ps_accent';var savedAccent=localStorage.getItem(accentKey);
+  if(savedAccent){document.documentElement.style.setProperty('--accent2',savedAccent);}
+  var picker=document.getElementById('accent-picker');
+  var resetBtn=document.getElementById('accent-reset-btn');
+  if(picker){
+    picker.value=savedAccent||'#B8860B';
+    picker.addEventListener('input',function(){document.documentElement.style.setProperty('--accent2',picker.value);localStorage.setItem(accentKey,picker.value);});
+  }
+  if(resetBtn){resetBtn.addEventListener('click',function(){document.documentElement.style.removeProperty('--accent2');localStorage.removeItem(accentKey);if(picker)picker.value='#B8860B';});}
+})();
+
+// Export journal as text
+(function(){
+  var btn=document.getElementById('data-export-journal-btn');
+  if(!btn)return;
+  btn.addEventListener('click',function(){
+    var jData=loadJSON('ps_journal',{});
+    var keys=Object.keys(jData).sort();
+    var text=keys.map(function(k){var e=jData[k];return '=== '+k+' ===\nMood: '+(e.mood||'—')+'\n\n'+(e.text||'')+'\n';}).join('\n');
+    var blob=new Blob([text],{type:'text/plain'});
+    var url=URL.createObjectURL(blob);var a=document.createElement('a');
+    a.href=url;a.download='journal-'+dateKey(new Date())+'.txt';
+    document.body.appendChild(a);a.click();
+    setTimeout(function(){document.body.removeChild(a);URL.revokeObjectURL(url);},200);
+    document.getElementById('data-status').textContent='Journal exported as .txt file.';
+  });
+})();
+
+// Share daily summary as image (canvas)
+(function(){
+  var btn=document.getElementById('data-share-btn');
+  if(!btn)return;
+  btn.addEventListener('click',function(){
+    var canvas=document.createElement('canvas');canvas.width=600;canvas.height=300;
+    var ctx=canvas.getContext('2d');
+    var isDark=document.documentElement.getAttribute('data-theme')==='dark';
+    ctx.fillStyle=isDark?'#111':'#FDFAF6';ctx.fillRect(0,0,600,300);
+    ctx.fillStyle=isDark?'#C9A84C':'#B8860B';ctx.font='bold 20px serif';ctx.fillText('🍕 Productivity Suite — Daily Summary',20,40);
+    ctx.fillStyle=isDark?'#FFFFFF':'#111111';ctx.font='15px sans-serif';
+    var lines=[];
+    var tasks=loadJSON('ps_pizza_tasks',[]);var today=dateKey(new Date());
+    var done=tasks.filter(function(t){return t.done&&t.date===today;}).length;
+    var total=tasks.filter(function(t){return t.date===today;}).length;
+    if(total)lines.push('✅ Tasks: '+done+'/'+total+' done');
+    var moods=loadJSON('ps_mood',[]);var m=moods.filter(function(x){return x.date===today;}).slice(-1)[0];
+    if(m)lines.push(m.emoji+' Mood: '+m.label);
+    var water=loadJSON('ps_water',{date:'',ml:0,goal:2000});
+    if(water.date===today&&water.ml>0)lines.push('💧 Water: '+water.ml+'ml');
+    var sleep=loadJSON('ps_sleep',[]);var ls=sleep.slice(-1)[0];
+    if(ls)lines.push('🌙 Sleep: '+ls.hrs+'h');
+    lines.push('⭐ XP: '+xpData.xp+' · Level '+xpData.level);
+    lines.forEach(function(l,i){ctx.fillText(l,20,90+i*36);});
+    ctx.fillStyle=isDark?'#555':'#CCC';ctx.font='12px sans-serif';ctx.fillText(new Date().toLocaleDateString('en-IN',{weekday:'long',day:'numeric',month:'long',year:'numeric'}),20,280);
+    var url=canvas.toDataURL('image/png');var a=document.createElement('a');a.href=url;a.download='daily-summary.png';
+    document.body.appendChild(a);a.click();setTimeout(function(){document.body.removeChild(a);},200);
+    document.getElementById('data-status').textContent='Daily summary image downloaded.';
+  });
+})();
 
 }); // end new-apps DOMContentLoaded
 </script>
